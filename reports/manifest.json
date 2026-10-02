@@ -49,7 +49,7 @@
     "docs/SECURITY.md": "e2af2cbae09cff200886d97def93f567bc4a741df108c92a6e26ddabc6666993",
     "docs/SPECIFICATION.md": "36229d73c5f863e6af3a65a58d022573618c40edaced17403c48e2e3fb5d094b",
     "docs/SUBMISSION.md": "4ee555bab91a19c821f1c294bd78022e68b5088210b8650dcef42d8ea4283187",
-    "docs/VALIDATION.md": "76896c99c9503f0df8d206e7cc384cd1d897268f2d5e4424f46a4abee2f676e5",
+    "docs/VALIDATION.md": "14cb3bff5609d91b3364cc9c3b1f024959615269d7894decc709f5a7e205bff6",
     "docs/standards-snapshot.json": "de0dd0e7112942fafb4256bb5cf09b1c2fc92d2ee7aaac9f0ffc56081d1fec2e",
     "foundry.toml": "7aa3e50aea4f2ca6935d8dc32690839b58d011e847b165a3ea7ad5fa0b8d3a13",
     "lib/forge-std/src/Base.sol": "d5a2918c9ba38629bcf1c8b5206a0b779eb92576bbebec2024ec6438562ecf74",
@@ -363,7 +363,7 @@
     "scripts/slither-reviewed.json": "511a9738163191f6e9bc2a79b86006145180ad8aab810fb68b263f8b483ad990",
     "scripts/tests/test_candidate.py": "b0fff66729cb2aa5ff392806da73e4833e0069addf6d45d9a09c812988ea421e",
     "scripts/verify.sh": "7d1027678f1ff7ad5d8e8e0d5d626a1f962ffeb877b61c22ef78c0839fce0328",
-    "scripts/write_validation.py": "a4a7ec95b6bdb308e18199d5205cf3d13e057c013431dafb8278f7bb5cc378d8",
+    "scripts/write_validation.py": "b09e995f810b1aed2b06854af69f646e4a8f585d29004c77e071b29cf541b75b",
     "src/StructuredFundEligibility.sol": "c55cf4e0d676ed932fe14387bbce7e17922f9319f3c5eec555b9c3d2281ee827",
     "src/StructuredFundFactory.sol": "3f937dafbe057ddf4d31978267402eb4855633842a93c73d8e4a904f2772ca17",
     "src/StructuredFundVault.sol": "d6a09de0b55fb31fff5ec150131cc96cc00c1ced4b6d1b682f29e5b115772336",
@@ -391,6 +391,6 @@
     "scopeId()": "c878a425",
     "totalOutstandingPrincipal()": "f51c879b"
   },
-  "source_tree_sha256": "dbf33cba59b588efa02a3b38e6c4470cee28ccc7b33e00e094cb10b7b194ffa9",
+  "source_tree_sha256": "1be59bff51d09303399dbbfa34bdb65b433de453f88b2bd1f1f7a07404469759",
   "via_ir": true
 }

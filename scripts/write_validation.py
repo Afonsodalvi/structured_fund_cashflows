@@ -18,6 +18,7 @@ for match in re.finditer(pattern, log, re.S):
     suites.append({"suite": name, "path": path, "passed": int(passed)})
 if len(suites) != 6:
     raise SystemExit("Expected all six candidate test suites")
+suites.sort(key=lambda suite: suite["path"])
 fuzz = re.findall(r"\[PASS\] testFuzz_.*?\(runs: (\d+),", log)
 invariants = re.findall(r"\[PASS\] invariant_.*?\(runs: (\d+), calls: (\d+), reverts: (\d+)\)", log)
 if len(fuzz) != 4 or any(int(r) != 2048 for r in fuzz):

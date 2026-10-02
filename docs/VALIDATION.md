@@ -9,12 +9,12 @@ The handler explores 17 operation types across three actors. Batch atomicity and
 
 | Suite | Passed |
 | --- | ---: |
-| StructuredFundSecurityTest | 46 |
-| StructuredFundFactoryTest | 5 |
-| StructuredFundEventsTest | 6 |
-| StructuredFundCompositionTest | 10 |
-| StructuredFundVaultTest | 30 |
 | StructuredFundInvariantTest | 5 |
+| StructuredFundSecurityTest | 46 |
+| StructuredFundCompositionTest | 10 |
+| StructuredFundEventsTest | 6 |
+| StructuredFundFactoryTest | 5 |
+| StructuredFundVaultTest | 30 |
 
 ## Production coverage
 

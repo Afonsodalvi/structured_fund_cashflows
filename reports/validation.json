@@ -142,19 +142,14 @@
     "skipped": 0,
     "suites": [
       {
+        "passed": 5,
+        "path": "test/invariant/StructuredFundInvariant.t.sol",
+        "suite": "StructuredFundInvariantTest"
+      },
+      {
         "passed": 46,
         "path": "test/security/StructuredFundSecurity.t.sol",
         "suite": "StructuredFundSecurityTest"
-      },
-      {
-        "passed": 5,
-        "path": "test/unit/StructuredFundFactory.t.sol",
-        "suite": "StructuredFundFactoryTest"
-      },
-      {
-        "passed": 6,
-        "path": "test/unit/StructuredFundEvents.t.sol",
-        "suite": "StructuredFundEventsTest"
       },
       {
         "passed": 10,
@@ -162,14 +157,19 @@
         "suite": "StructuredFundCompositionTest"
       },
       {
-        "passed": 30,
-        "path": "test/unit/StructuredFundVault.t.sol",
-        "suite": "StructuredFundVaultTest"
+        "passed": 6,
+        "path": "test/unit/StructuredFundEvents.t.sol",
+        "suite": "StructuredFundEventsTest"
       },
       {
         "passed": 5,
-        "path": "test/invariant/StructuredFundInvariant.t.sol",
-        "suite": "StructuredFundInvariantTest"
+        "path": "test/unit/StructuredFundFactory.t.sol",
+        "suite": "StructuredFundFactoryTest"
+      },
+      {
+        "passed": 30,
+        "path": "test/unit/StructuredFundVault.t.sol",
+        "suite": "StructuredFundVaultTest"
       }
     ]
   }
