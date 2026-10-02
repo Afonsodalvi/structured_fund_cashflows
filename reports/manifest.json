@@ -45,7 +45,7 @@
     "docs/MAGICIANS_POST.md": "aa1ef029d312f5ae2e9932313c07ea3b019e124c48cf1f9777f476fc1a2af1ce",
     "docs/MIGRATION.md": "bd4d14ca035f3e67e26e91ca1ce7e0e4d498ce805b91956e90dbc5755adf1f59",
     "docs/REVIEW.md": "1852d0ee1343d56f19241794e50b7b7e3c301aa044b75b21fd53258a7c1e4886",
-    "docs/RWA_COMPARISON_PT.md": "01bc39ba1d9b797efd626113b311156af1c3de319d42bda073c63e2024d11446",
+    "docs/RWA_COMPARISON_PT.md": "0e3c69db4d8cba2e6b6525802cc9c13d07f0d8861e2a71e137322c66836438ae",
     "docs/SECURITY.md": "e2af2cbae09cff200886d97def93f567bc4a741df108c92a6e26ddabc6666993",
     "docs/SPECIFICATION.md": "36229d73c5f863e6af3a65a58d022573618c40edaced17403c48e2e3fb5d094b",
     "docs/SUBMISSION.md": "4ee555bab91a19c821f1c294bd78022e68b5088210b8650dcef42d8ea4283187",
@@ -391,6 +391,6 @@
     "scopeId()": "c878a425",
     "totalOutstandingPrincipal()": "f51c879b"
   },
-  "source_tree_sha256": "87b7c43623c503de3a9636f7d14ba60a3dcbaf693cdd69a3358ac30a83173ffe",
+  "source_tree_sha256": "dbf33cba59b588efa02a3b38e6c4470cee28ccc7b33e00e094cb10b7b194ffa9",
   "via_ir": true
 }

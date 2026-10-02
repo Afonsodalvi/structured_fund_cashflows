@@ -27,7 +27,7 @@ O [sandbox da Securitize](https://labs.securitize.io/docs/vault-registrar-sandbo
 | Padrão / situação conferida | Função principal | Relação com SFC e limite relevante |
 | --- | --- | --- |
 | [ERC-20 — Final](https://eips.ethereum.org/EIPS/eip-20) | Saldos fungíveis, transferências e allowances | É a base das cotas. Uma transferência do asset não informa se houve principal, rendimento ou retenção |
-| [ERC-4626 — Final](https://eips.ethereum.org/EIPS/eip-4626) | Interface de vault: assets, shares, conversão, entrada e saída | SFC acrescenta um ledger de principal e pagamentos individualizados. Não redefine arredondamento ou pode ignorar `totalAssets` |
+| [ERC-4626 — Final](https://eips.ethereum.org/EIPS/eip-4626) | Interface de vault: assets, shares, conversão, entrada e saída | SFC acrescenta um ledger de principal e pagamentos individualizados. Não redefine o arredondamento nem permite ignorar a semântica de `totalAssets` |
 | [ERC-7540 — Final](https://eips.ethereum.org/EIPS/eip-7540) | Pedidos assíncronos, controladores, operadores e claims | Resolve a espera entre solicitação e liquidação. SFC acompanha o principal desses estados; não reivindica a criação da fila |
 | [ERC-7575 — Final](https://eips.ethereum.org/EIPS/eip-7575) | Share separado, descoberta e múltiplas entradas em assets | Referência SFC fornece descoberta para seu próprio share. Um share externo compartilhado precisa de contabilidade adicional de denominação e baixa |
 | [ERC-7887 — Draft](https://eips.ethereum.org/EIPS/eip-7887) | Cancelamento de solicitações ERC-7540 | A referência preserva principal capturado e devolve shares por claim. A especificação 7887 ainda tem inconsistências editoriais de nomes/eventos documentadas em CONFORMANCE |
@@ -78,7 +78,7 @@ O arredondamento proporcional para baixo conserva o total e carrega o resíduo n
 
 Se Alice e Bruno têm direitos sobre o mesmo NAV e o fundo registra apenas Alice numa primeira transação, o preço da cota pode refletir uma distribuição incompleta antes do registro de Bruno. Uma entrada ou resgate entre as duas transações pode transferir valor entre participantes.
 
-A revisão acrescentou registro atômico de até 64 cashflows. Todos são contabilizados na mesma transação ou todos revertem. Isso resolve a atomicidade desse lote, mas não prova que o operador incluiu todos os titulares devidos. Distribuições maiores precisam de epoch/snapshot e bloqueio de operações sensíveis ao preço, que não foram implementados por conveniência na referência.
+A revisão acrescentou registro atômico de até 64 cashflows. Todos são contabilizados na mesma transação ou todos revertem. Isso resolve a atomicidade desse lote, mas não prova que o operador incluiu todos os titulares devidos. Distribuições maiores precisam de epoch/snapshot e bloqueio de operações sensíveis ao preço; esses mecanismos estão fora desta implementação de referência.
 
 ### Escrow não é estoque de cotas não emitidas
 
