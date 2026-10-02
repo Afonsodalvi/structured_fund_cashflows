@@ -1,0 +1,176 @@
+{
+  "author": "Afonso Dalvi (@Afonsodalvi)",
+  "candidate": "Structured Fund Cashflows",
+  "cashflow_interface_id": "0x2e0b288e",
+  "compiled_contracts": {
+    "StructuredFundEligibility": {
+      "creation_bytes_without_arguments": 4116,
+      "eip170_headroom": 20892,
+      "runtime_bytes": 3684
+    },
+    "StructuredFundFactory": {
+      "creation_bytes_without_arguments": 26062,
+      "eip170_headroom": 20105,
+      "runtime_bytes": 4471
+    },
+    "StructuredFundVault": {
+      "creation_bytes_without_arguments": 20372,
+      "eip170_headroom": 6521,
+      "runtime_bytes": 18055
+    },
+    "StructuredFundVaultDeployer": {
+      "creation_bytes_without_arguments": 21080,
+      "eip170_headroom": 3540,
+      "runtime_bytes": 21036
+    }
+  },
+  "coverage": {
+    "instrumentation": "forge coverage --ir-minimum",
+    "production": {
+      "StructuredFundEligibility": {
+        "branches_percent": 100.0,
+        "counts": {
+          "BRF": 0,
+          "BRH": 0,
+          "FNF": 3,
+          "FNH": 3,
+          "LF": 8,
+          "LH": 8
+        },
+        "functions_percent": 100.0,
+        "lines_percent": 100.0
+      },
+      "StructuredFundFactory": {
+        "branches_percent": 100.0,
+        "counts": {
+          "BRF": 1,
+          "BRH": 1,
+          "FNF": 3,
+          "FNH": 3,
+          "LF": 13,
+          "LH": 13
+        },
+        "functions_percent": 100.0,
+        "lines_percent": 100.0
+      },
+      "StructuredFundVault": {
+        "branches_percent": 100.0,
+        "counts": {
+          "BRF": 47,
+          "BRH": 47,
+          "FNF": 51,
+          "FNH": 51,
+          "LF": 302,
+          "LH": 298
+        },
+        "functions_percent": 100.0,
+        "lines_percent": 98.68
+      },
+      "StructuredFundVaultDeployer": {
+        "branches_percent": 100.0,
+        "counts": {
+          "BRF": 1,
+          "BRH": 1,
+          "FNF": 4,
+          "FNH": 4,
+          "LF": 9,
+          "LH": 9
+        },
+        "functions_percent": 100.0,
+        "lines_percent": 100.0
+      }
+    },
+    "profile": "default",
+    "source_mapping_warning": true
+  },
+  "editorial_local_check": "passed",
+  "environment": {
+    "evm": "cancun",
+    "forge": "forge Version: 1.7.1\nCommit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8\nBuild Timestamp: 2026-05-08T07:54:31.470926000Z (1778226871)\nBuild Profile: dist",
+    "optimizer_runs": 200,
+    "slither": "0.11.3",
+    "solc": "0.8.28",
+    "via_ir": true
+  },
+  "limitations": [
+    "No independent audit or formal proof",
+    "Trusted valuation and entitlement allocation",
+    "No automatic migration of existing Unified deployments",
+    "No public discussion or editorial acceptance"
+  ],
+  "publication_status": "local_unsubmitted",
+  "schema": 1,
+  "solidity_test_source_sha256": {
+    "foundry.toml": "7aa3e50aea4f2ca6935d8dc32690839b58d011e847b165a3ea7ad5fa0b8d3a13",
+    "src/StructuredFundEligibility.sol": "c55cf4e0d676ed932fe14387bbce7e17922f9319f3c5eec555b9c3d2281ee827",
+    "src/StructuredFundFactory.sol": "3f937dafbe057ddf4d31978267402eb4855633842a93c73d8e4a904f2772ca17",
+    "src/StructuredFundVault.sol": "d6a09de0b55fb31fff5ec150131cc96cc00c1ced4b6d1b682f29e5b115772336",
+    "src/StructuredFundVaultDeployer.sol": "1d98d95e7b1637d3fb201e56d06fa2ec677fef9402149d305844257998823c1f",
+    "src/interfaces/IStructuredFundCashflows.sol": "ed5c64e931db9f05965754f1b9d484eb10a8c9f753d73279e2a919d58db107ad",
+    "src/interfaces/IStructuredFundEligibility.sol": "6599a8dec86c96fedd2e356db018b7c47dfb6daedb05d710bd0a699a45d3e317",
+    "test/Base.t.sol": "829992322c387ea225d5e1d7bbd29ef20b60e276ed474a0e6643d9e3f208c8bc",
+    "test/invariant/StructuredFundInvariant.t.sol": "2f41cc41821af0017a8d175cb6e46ac88e68e676504b03b899176885fddfcc3b",
+    "test/mocks/MockAsset.sol": "87c97c679804458933c1a04b66bd1912dfa498c4b689fe248f0cf815112e5c6b",
+    "test/security/StructuredFundSecurity.t.sol": "94218effd368f79140b7d89e7c2b2cfaa9122da7d7766151023ede6098713117",
+    "test/unit/StructuredFundComposition.t.sol": "eae36922d5f236f6ff4b156838976cbafc0cdf4ce3342e7824382089aef461fb",
+    "test/unit/StructuredFundEvents.t.sol": "c1ac9624b81a516904563194d347e81a426402fc519c9dbf5b596cac963bacf8",
+    "test/unit/StructuredFundFactory.t.sol": "fa7f2ffcf218f99c3997566b3d8bfdbb0fab71b47d35ae514aacc6bdb868d1ab",
+    "test/unit/StructuredFundVault.t.sol": "219cf89031fb602effa47b5768112ee25429d324bef872882bcb7f4f8ade32fe"
+  },
+  "static_analysis": {
+    "accepted_by_check": {
+      "calls-loop": 7,
+      "costly-loop": 3,
+      "timestamp": 1,
+      "too-many-digits": 1
+    },
+    "findings": 12,
+    "reviewed_accepted": 12,
+    "unreviewed": []
+  },
+  "tests": {
+    "fail_on_revert": true,
+    "failed": 0,
+    "fuzz_runs_per_test": 2048,
+    "fuzz_test_count": 4,
+    "invariant_count": 5,
+    "invariant_depth": 128,
+    "invariant_runs": 256,
+    "passed": 102,
+    "profile": "ci",
+    "seed": "0x534643",
+    "skipped": 0,
+    "suites": [
+      {
+        "passed": 46,
+        "path": "test/security/StructuredFundSecurity.t.sol",
+        "suite": "StructuredFundSecurityTest"
+      },
+      {
+        "passed": 5,
+        "path": "test/unit/StructuredFundFactory.t.sol",
+        "suite": "StructuredFundFactoryTest"
+      },
+      {
+        "passed": 6,
+        "path": "test/unit/StructuredFundEvents.t.sol",
+        "suite": "StructuredFundEventsTest"
+      },
+      {
+        "passed": 10,
+        "path": "test/unit/StructuredFundComposition.t.sol",
+        "suite": "StructuredFundCompositionTest"
+      },
+      {
+        "passed": 30,
+        "path": "test/unit/StructuredFundVault.t.sol",
+        "suite": "StructuredFundVaultTest"
+      },
+      {
+        "passed": 5,
+        "path": "test/invariant/StructuredFundInvariant.t.sol",
+        "suite": "StructuredFundInvariantTest"
+      }
+    ]
+  }
+}

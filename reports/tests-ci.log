@@ -1,0 +1,358 @@
+Compiling 57 files with Solc 0.8.28
+Solc 0.8.28 finished in 17.21s
+Compiler run successful with warnings:
+Warning (5740): Unreachable code.
+   --> lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol:204:9:
+    |
+204 |         _withdraw(_msgSender(), receiver, owner, assets, shares);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5740): Unreachable code.
+   --> lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol:206:9:
+    |
+206 |         return shares;
+    |         ^^^^^^^^^^^^^
+
+Warning (5740): Unreachable code.
+   --> lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol:217:9:
+    |
+217 |         _withdraw(_msgSender(), receiver, owner, assets, shares);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5740): Unreachable code.
+   --> lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol:219:9:
+    |
+219 |         return assets;
+    |         ^^^^^^^^^^^^^
+
+
+Ran 46 tests for test/security/StructuredFundSecurity.t.sol:StructuredFundSecurityTest
+[PASS] test_SecurityAdminTransferRequiresDelayAndAcceptance() (gas: 63324)
+[PASS] test_SecurityCancelRemainsRecoverableDuringPause() (gas: 421008)
+[PASS] test_SecurityCancellationBlocksNewRequestsAndSettlement() (gas: 495052)
+[PASS] test_SecurityCancelledSharesCannotBeClaimedTwice() (gas: 403264)
+[PASS] test_SecurityCashflowBoundsAndEvidence() (gas: 262860)
+[PASS] test_SecurityCashflowCannotBeStolen() (gas: 236600)
+[PASS] test_SecurityCashflowDuplicateDoubleClaimAndReplay() (gas: 447147)
+[PASS] test_SecurityCashflowInsufficientFundingRollsBackPrincipal() (gas: 421979)
+[PASS] test_SecurityCashflowIsRecoverableDuringPause() (gas: 258962)
+[PASS] test_SecurityCashflowReentrantClaimBlocked() (gas: 381047)
+[PASS] test_SecurityClaimCannotEscapeFreezeOrSendToBlockedRecipient() (gas: 399710)
+[PASS] test_SecurityControllerOverloadRequiresUnderlyingAllowance() (gas: 97947)
+[PASS] test_SecurityDepositRequiresEligiblePayerAndReceiver() (gas: 110561)
+[PASS] test_SecurityDepositThatRoundsToZeroSharesRejected() (gas: 4913329)
+[PASS] test_SecurityEmptyAndExcessRepaymentRejected() (gas: 234277)
+[PASS] test_SecurityFeeOnTransferClaimRejectedAtomically() (gas: 399602)
+[PASS] test_SecurityFeeOnTransferDepositRejectedAtomically() (gas: 122693)
+[PASS] test_SecurityFrozenOwnerCannotTransferOrRequest() (gas: 239786)
+[PASS] test_SecurityIlliquidRedeemDoesNotChangeAccounting() (gas: 331615)
+[PASS] test_SecurityInvalidCancelIdAndPrematureClaimRejected() (gas: 315939)
+[PASS] test_SecurityInvalidOperatorCannotBeApproved() (gas: 33394)
+[PASS] test_SecurityLimitsFailClosedWithBrokenEligibilityService() (gas: 3992006)
+[PASS] test_SecurityLockedPrincipalCannotReceiveExplicitAmortization() (gas: 333028)
+[PASS] test_SecurityNAVCannotReplayOverflowCapOrCreateEmptyCredit() (gas: 269756)
+[PASS] test_SecurityNAVReleaseCannotSkipPrincipalOrExceedGrossPayment() (gas: 244980)
+[PASS] test_SecurityNoDirectEscrowTransfers() (gas: 200451)
+[PASS] test_SecurityNoDoubleRedeemOrSettlement() (gas: 384418)
+[PASS] test_SecurityNoMintOrDepositWhilePaused() (gas: 53359)
+[PASS] test_SecurityNoPrematureClaimsOrOverRequest() (gas: 303815)
+[PASS] test_SecurityNoUnauthorizedRequestOrClaim() (gas: 378627)
+[PASS] test_SecurityOversizedCashflowAndFutureOrEmptyPeriodRejected() (gas: 73520)
+[PASS] test_SecurityPartialWithdrawCannotStrandAssetsWithoutShares() (gas: 4940697)
+[PASS] test_SecurityPrincipalLedgerIsNotGuaranteedRecovery() (gas: 500200)
+[PASS] test_SecurityReentrantClaimCannotDoublePay() (gas: 511641)
+[PASS] test_SecurityReentrantDepositCallbackCannotEnterOrStealEscrow() (gas: 375396)
+[PASS] test_SecurityRejectsUnsupportedDecimals() (gas: 903524)
+[PASS] test_SecurityReservesCannotBeDeployed() (gas: 366004)
+[PASS] test_SecurityRevokedOperatorCannotClaim() (gas: 387095)
+[PASS] test_SecuritySharesDoNotTransferDuringPause() (gas: 229884)
+[PASS] test_SecuritySlippageGuardRollsBackDeposit() (gas: 203924)
+[PASS] test_SecuritySynchronousControllerOverloadsEnforceAuthorizationAndLimits() (gas: 130211)
+[PASS] test_SecurityUnapprovedRecipientCannotReceiveShares() (gas: 230655)
+[PASS] test_SecurityUnauthorizedRoles() (gas: 52742)
+[PASS] test_SecurityValuationReentrancyBlockedEvenWithValuerRole() (gas: 386408)
+[PASS] test_SecurityWithdrawZeroAndExcessRejected() (gas: 371039)
+[PASS] test_SecurityZeroDepositAndRequestRejected() (gas: 37969)
+Suite result: ok. 46 passed; 0 failed; 0 skipped; finished in 10.11ms (14.28ms CPU time)
+
+Ran 5 tests for test/unit/StructuredFundFactory.t.sol:StructuredFundFactoryTest
+[PASS] test_DeployerIsBoundToFactoryAndRejectsDirectCalls() (gas: 5307364)
+[PASS] test_FactoryCreationRequiresRole() (gas: 5321494)
+[PASS] test_FactoryScopeIsChainAndFactoryBound() (gas: 10606042)
+[PASS] test_FactoryScopesIncludeSeriesAndClass() (gas: 17481233)
+[PASS] test_FailedDeploymentDoesNotConsumeScope() (gas: 9534961)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 10.75ms (5.77ms CPU time)
+
+Ran 6 tests for test/unit/StructuredFundEvents.t.sol:StructuredFundEventsTest
+[PASS] test_CashflowEventsUseNativeUnitsAndImmutableScope() (gas: 489301)
+[PASS] test_ClassAndSeriesPricesRemainIndependent() (gas: 4592749)
+[PASS] test_ControllerDepositOverloadUsesControllerFundingAndEvent() (gas: 238465)
+[PASS] test_ControllerMintOverloadIsExactAndSynchronous() (gas: 234832)
+[PASS] test_OperatorAndRequestEventFields() (gas: 319662)
+[PASS] test_PrincipalRetirementIsExplicitAtSettlement() (gas: 360288)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 11.43ms (13.42ms CPU time)
+
+Ran 10 tests for test/unit/StructuredFundComposition.t.sol:StructuredFundCompositionTest
+[PASS] testFuzz_BatchConservesGrossNetPrincipalAndNAV(uint96,uint96,uint96) (runs: 2048, μ: 788617, ~: 792580)
+[PASS] test_BatchBooksBothHoldersAndReservesAtomically() (gas: 822566)
+[PASS] test_BatchCallbackCannotReenterPrivilegedValuation() (gas: 954380)
+[PASS] test_BatchInsufficientFundingRevertsWholeDistribution() (gas: 815173)
+[PASS] test_BatchLaterInvalidRecordRollsBackEarlierRecordAndTax() (gas: 630814)
+[PASS] test_BatchRejectsEmptyOversizedAndMismatchedLists() (gas: 64539)
+[PASS] test_BatchRequiresSettlerAndUnpausedVault() (gas: 61734)
+[PASS] test_ERC165DiscoveryFitsThirtyThousandGas() (gas: 25197)
+[PASS] test_MaximumBatchDoesNotRequireGlobalHolderEnumeration() (gas: 7652219)
+[PASS] test_ShareToVaultDiscoveryIncludesERC165ShareInterface() (gas: 23128)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 126.44ms (127.21ms CPU time)
+
+Ran 30 tests for test/unit/StructuredFundVault.t.sol:StructuredFundVaultTest
+[PASS] testFuzz_ExactMintMatchesPreview(uint96) (runs: 2048, μ: 284574, ~: 284484)
+[PASS] testFuzz_PartialClaimConservesReserves(uint96,uint96) (runs: 2048, μ: 391922, ~: 389825)
+[PASS] testFuzz_TransferPrincipalConservation(uint96,uint96) (runs: 2048, μ: 250087, ~: 243947)
+[PASS] test_AllowanceAuthorizesRequestAndIsConsumed() (gas: 342937)
+[PASS] test_AsyncPreviewAlwaysRevertsEvenForZero() (gas: 11133)
+[PASS] test_CancellationPullReturnsOriginalPrincipalDespiteOtherDeposits() (gas: 553276)
+[PASS] test_CashflowCanReleasePartiallyRecognizedYield() (gas: 502834)
+[PASS] test_CashflowPrincipalYieldTaxAndPullClaim() (gas: 505043)
+[PASS] test_CashflowReleasesPreviouslyAccruedYieldFromNAV() (gas: 504693)
+[PASS] test_CreditDeployRepayAndNAVNonce() (gas: 310388)
+[PASS] test_DepositExactNativeUnits() (gas: 197067)
+[PASS] test_DifferentAssetDecimalsZeroAndEighteen() (gas: 9751809)
+[PASS] test_DonationDoesNotManipulateConversionOrNAV() (gas: 291652)
+[PASS] test_EscrowAndZeroAddressCannotBeDepositReceivers() (gas: 27883)
+[PASS] test_FullAsyncClaimRetiresSupplyAndPrincipal() (gas: 394984)
+[PASS] test_FullLossRedeemClearsZeroAssetRights() (gas: 410791)
+[PASS] test_HistoricalCashflowDoesNotMoveWithShares() (gas: 461040)
+[PASS] test_InfiniteAllowanceNotConsumed() (gas: 354208)
+[PASS] test_MaxFunctionsRemainBoundedAtFullImpairment() (gas: 241990)
+[PASS] test_MaxFunctionsTrackCapPauseEligibilityAndClaimable() (gas: 424999)
+[PASS] test_MetadataAndInterfaces() (gas: 27662)
+[PASS] test_MintOneShareWeiWithSixDecimals() (gas: 205411)
+[PASS] test_MintUsesCeilingAfterNAVChange() (gas: 369198)
+[PASS] test_OperatorNeedsNoAllowanceAndCanClaim() (gas: 399596)
+[PASS] test_PartialRedeemAndWithdrawExhaustRights() (gas: 424512)
+[PASS] test_RequestAggregatesAtIdZeroAndViewsAreCallerIndependent() (gas: 397386)
+[PASS] test_SelfAndZeroTransfersPreservePrincipal() (gas: 228947)
+[PASS] test_SeveralSettlementsAggregateClaimableRates() (gas: 588695)
+[PASS] test_TransferMovesPrincipalProportionally() (gas: 238891)
+[PASS] test_ZeroNetCashflowCanBeClaimedOnce() (gas: 271181)
+Suite result: ok. 30 passed; 0 failed; 0 skipped; finished in 4.46s (361.98ms CPU time)
+
+Ran 5 tests for test/invariant/StructuredFundInvariant.t.sol:StructuredFundInvariantTest
+[PASS] invariant_CashflowLiabilitiesAndNoDoublePayment() (runs: 256, calls: 32768, reverts: 0)
+
+╭-----------------------+----------------+-------+---------+----------╮
+| Contract              | Selector       | Calls | Reverts | Discards |
++=====================================================================+
+| StructuredFundHandler | cancel         | 1952  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCancel    | 1863  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCashflow  | 1926  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deploy         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deposit        | 1950  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | exactMint      | 1935  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfill        | 1901  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfillCancel  | 1929  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | recordCashflow | 1881  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | redeem         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | repay          | 1869  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | reportNAV      | 1933  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | request        | 1960  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | toggleFreeze   | 1934  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | togglePause    | 1979  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | transfer       | 1917  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | withdraw       | 1929  | 0       | 0        |
+╰-----------------------+----------------+-------+---------+----------╯
+
+[PASS] invariant_ExactLiquidityAndReserveBacking() (runs: 256, calls: 32768, reverts: 0)
+
+╭-----------------------+----------------+-------+---------+----------╮
+| Contract              | Selector       | Calls | Reverts | Discards |
++=====================================================================+
+| StructuredFundHandler | cancel         | 1952  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCancel    | 1863  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCashflow  | 1926  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deploy         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deposit        | 1950  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | exactMint      | 1935  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfill        | 1901  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfillCancel  | 1929  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | recordCashflow | 1881  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | redeem         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | repay          | 1869  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | reportNAV      | 1933  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | request        | 1960  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | toggleFreeze   | 1934  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | togglePause    | 1979  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | transfer       | 1917  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | withdraw       | 1929  | 0       | 0        |
+╰-----------------------+----------------+-------+---------+----------╯
+
+[PASS] invariant_PrincipalConservationAndGhostAccounting() (runs: 256, calls: 32768, reverts: 0)
+
+╭-----------------------+----------------+-------+---------+----------╮
+| Contract              | Selector       | Calls | Reverts | Discards |
++=====================================================================+
+| StructuredFundHandler | cancel         | 1952  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCancel    | 1863  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCashflow  | 1926  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deploy         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deposit        | 1950  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | exactMint      | 1935  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfill        | 1901  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfillCancel  | 1929  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | recordCashflow | 1881  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | redeem         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | repay          | 1869  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | reportNAV      | 1933  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | request        | 1960  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | toggleFreeze   | 1934  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | togglePause    | 1979  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | transfer       | 1917  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | withdraw       | 1929  | 0       | 0        |
+╰-----------------------+----------------+-------+---------+----------╯
+
+[PASS] invariant_RedemptionLiabilitiesEqualReserves() (runs: 256, calls: 32768, reverts: 0)
+
+╭-----------------------+----------------+-------+---------+----------╮
+| Contract              | Selector       | Calls | Reverts | Discards |
++=====================================================================+
+| StructuredFundHandler | cancel         | 1952  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCancel    | 1863  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCashflow  | 1926  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deploy         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deposit        | 1950  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | exactMint      | 1935  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfill        | 1901  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfillCancel  | 1929  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | recordCashflow | 1881  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | redeem         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | repay          | 1869  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | reportNAV      | 1933  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | request        | 1960  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | toggleFreeze   | 1934  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | togglePause    | 1979  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | transfer       | 1917  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | withdraw       | 1929  | 0       | 0        |
+╰-----------------------+----------------+-------+---------+----------╯
+
+[PASS] invariant_SupplyAndEscrowConservation() (runs: 256, calls: 32768, reverts: 0)
+
+╭-----------------------+----------------+-------+---------+----------╮
+| Contract              | Selector       | Calls | Reverts | Discards |
++=====================================================================+
+| StructuredFundHandler | cancel         | 1952  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCancel    | 1863  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | claimCashflow  | 1926  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deploy         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | deposit        | 1950  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | exactMint      | 1935  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfill        | 1901  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | fulfillCancel  | 1929  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | recordCashflow | 1881  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | redeem         | 1955  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | repay          | 1869  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | reportNAV      | 1933  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | request        | 1960  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | toggleFreeze   | 1934  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | togglePause    | 1979  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | transfer       | 1917  | 0       | 0        |
+|-----------------------+----------------+-------+---------+----------|
+| StructuredFundHandler | withdraw       | 1929  | 0       | 0        |
+╰-----------------------+----------------+-------+---------+----------╯
+
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 5.55s (23.91s CPU time)
+
+╭-------------------------------+--------+--------+---------╮
+| Test Suite                    | Passed | Failed | Skipped |
++===========================================================+
+| StructuredFundInvariantTest   | 5      | 0      | 0       |
+|-------------------------------+--------+--------+---------|
+| StructuredFundSecurityTest    | 46     | 0      | 0       |
+|-------------------------------+--------+--------+---------|
+| StructuredFundCompositionTest | 10     | 0      | 0       |
+|-------------------------------+--------+--------+---------|
+| StructuredFundEventsTest      | 6      | 0      | 0       |
+|-------------------------------+--------+--------+---------|
+| StructuredFundFactoryTest     | 5      | 0      | 0       |
+|-------------------------------+--------+--------+---------|
+| StructuredFundVaultTest       | 30     | 0      | 0       |
+╰-------------------------------+--------+--------+---------╯

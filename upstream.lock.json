@@ -1,0 +1,13 @@
+{
+  "checked_on": "2026-10-02",
+  "repository": "https://github.com/ethereum/ERCs.git",
+  "commit": "365b4c02879f3e882b91281d42b4f57b406205e9",
+  "config": "config/eipw.toml",
+  "eipw_version": "0.11.0",
+  "pending_metadata_lints": [
+    "preamble-eip",
+    "preamble-file-name",
+    "preamble-discussions-to",
+    "preamble-re-discussions-to"
+  ]
+}

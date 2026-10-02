@@ -1,0 +1,90 @@
+{
+  "schema": 2,
+  "reviewed_on": "2026-10-02",
+  "reviewed": [
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "normalized_description_sha256": "886afc78a67ffdefb2c663da6e38d1bc85dc02cf829728b7506ba717aaea35c1",
+      "normalized_description": "StructuredFundVault._pullExact(address,uint256) (src/StructuredFundVault.sol) has external calls inside a loop: beforeSender = token.balanceOf(from) (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n\t\tStructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256)\n",
+      "rationale": "Balance and eligibility queries in recordCashflowBatch. SETTLER_ROLE, nonReentrant and MAX_CASHFLOW_BATCH=64 bound authorization, callbacks and iteration. Asset/policy failure reverts every record. Configured exact-transfer asset and eligibility policy remain availability assumptions."
+    },
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "normalized_description_sha256": "58e386d2a754a1a1a815b75a86674a6fa7bbde96d00903bd2848c9cb3a82c2e0",
+      "normalized_description": "StructuredFundVault._pullExact(address,uint256) (src/StructuredFundVault.sol) has external calls inside a loop: token.balanceOf(address(this)) != beforeBalance + assets || token.balanceOf(from) + assets != beforeSender (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n\t\tStructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256)\n",
+      "rationale": "Balance and eligibility queries in recordCashflowBatch. SETTLER_ROLE, nonReentrant and MAX_CASHFLOW_BATCH=64 bound authorization, callbacks and iteration. Asset/policy failure reverts every record. Configured exact-transfer asset and eligibility policy remain availability assumptions."
+    },
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "normalized_description_sha256": "e4380ee8e87d8ffe309ffe7c618e97186e2d63bd729d52b1354fbb0e5a3fe719",
+      "normalized_description": "StructuredFundVault._eligible(address) (src/StructuredFundVault.sol) has external calls inside a loop: ok = eligibility.isEligible(account) (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n\t\tStructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256)\n\t\tStructuredFundVault._checkEligible(address)\n",
+      "rationale": "Balance and eligibility queries in recordCashflowBatch. SETTLER_ROLE, nonReentrant and MAX_CASHFLOW_BATCH=64 bound authorization, callbacks and iteration. Asset/policy failure reverts every record. Configured exact-transfer asset and eligibility policy remain availability assumptions."
+    },
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "normalized_description_sha256": "fe322d9b201ca4b1a96554dbcd8f6e39c0e3e8a47b7c96a47847be18cc8e52ac",
+      "normalized_description": "StructuredFundVault._pushExact(address,uint256) (src/StructuredFundVault.sol) has external calls inside a loop: token.balanceOf(address(this)) + assets != beforeVault || token.balanceOf(to) != beforeReceiver + assets (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n\t\tStructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256)\n",
+      "rationale": "Balance and eligibility queries in recordCashflowBatch. SETTLER_ROLE, nonReentrant and MAX_CASHFLOW_BATCH=64 bound authorization, callbacks and iteration. Asset/policy failure reverts every record. Configured exact-transfer asset and eligibility policy remain availability assumptions."
+    },
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "normalized_description_sha256": "4dd069ddb05d94446fd1241243c31d1904c952b9e436f6dd5dacfba2d7bd5dc9",
+      "normalized_description": "StructuredFundVault._pushExact(address,uint256) (src/StructuredFundVault.sol) has external calls inside a loop: beforeVault = token.balanceOf(address(this)) (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n\t\tStructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256)\n",
+      "rationale": "Balance and eligibility queries in recordCashflowBatch. SETTLER_ROLE, nonReentrant and MAX_CASHFLOW_BATCH=64 bound authorization, callbacks and iteration. Asset/policy failure reverts every record. Configured exact-transfer asset and eligibility policy remain availability assumptions."
+    },
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "normalized_description_sha256": "bfc163e4de11663ebac6b028f06ec5e36bd9af20d5bcec4522e9a53c8cfccc2a",
+      "normalized_description": "StructuredFundVault._pushExact(address,uint256) (src/StructuredFundVault.sol) has external calls inside a loop: beforeReceiver = token.balanceOf(to) (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n\t\tStructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256)\n",
+      "rationale": "Balance and eligibility queries in recordCashflowBatch. SETTLER_ROLE, nonReentrant and MAX_CASHFLOW_BATCH=64 bound authorization, callbacks and iteration. Asset/policy failure reverts every record. Configured exact-transfer asset and eligibility policy remain availability assumptions."
+    },
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "normalized_description_sha256": "9aa8507a45d76d900cf035f9f9aa0a0853b343616796441fdb6532db5980126e",
+      "normalized_description": "StructuredFundVault._pullExact(address,uint256) (src/StructuredFundVault.sol) has external calls inside a loop: beforeBalance = token.balanceOf(address(this)) (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n\t\tStructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256)\n",
+      "rationale": "Balance and eligibility queries in recordCashflowBatch. SETTLER_ROLE, nonReentrant and MAX_CASHFLOW_BATCH=64 bound authorization, callbacks and iteration. Asset/policy failure reverts every record. Configured exact-transfer asset and eligibility policy remain availability assumptions."
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "normalized_description_sha256": "cd4ce8fee0c4d8d0243d8ce0acd569661ba6bee9433ac2dc44a3533ef978c05c",
+      "normalized_description": "StructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256) (src/StructuredFundVault.sol) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- id == bytes32(0) || _cashflows[id].beneficiary != address(0) || payment.claimed || payment.evidenceHash == bytes32(0) || payment.periodStart >= payment.periodEnd || payment.periodEnd > block.timestamp || payment.periodStart < lastCashflowPeriodEnd[payment.beneficiary] || payment.withheld > payment.grossYield || payment.principal > principalOf[payment.beneficiary] || navRelease < payment.principal || navRelease > creditNAV || navRelease > payment.principal + payment.grossYield || payment.principal + payment.grossYield == 0 (src/StructuredFundVault.sol)\n",
+      "rationale": "Closed reporting interval check only. No entropy, pricing or per-second accrual uses timestamp. Boundary skew remains an operational assumption."
+    },
+    {
+      "check": "costly-loop",
+      "impact": "Informational",
+      "normalized_description_sha256": "409934074305b89440e03055ec3b80877d6081ea9733395ddd13b0e7e445eea7",
+      "normalized_description": "StructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256) (src/StructuredFundVault.sol) has costly operations inside a loop:\n\t- creditNAV -= navRelease (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n",
+      "rationale": "Up to 64 explicitly supplied records update principal/NAV/reserves independently. Bounded storage work preserves accounting and per-record evidence; no global holder enumeration."
+    },
+    {
+      "check": "costly-loop",
+      "impact": "Informational",
+      "normalized_description_sha256": "4570bb1653071c7864bce1497ddee2a5578472bce603e7d07980c8087e4cfb7e",
+      "normalized_description": "StructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256) (src/StructuredFundVault.sol) has costly operations inside a loop:\n\t- totalOutstandingPrincipal -= payment.principal (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n",
+      "rationale": "Up to 64 explicitly supplied records update principal/NAV/reserves independently. Bounded storage work preserves accounting and per-record evidence; no global holder enumeration."
+    },
+    {
+      "check": "costly-loop",
+      "impact": "Informational",
+      "normalized_description_sha256": "6ae7809008e8fdd917e2a6e42d044f8b239bf69bf7f9f6852403721ee5235e72",
+      "normalized_description": "StructuredFundVault._recordCashflow(bytes32,IStructuredFundCashflows.Cashflow,uint256) (src/StructuredFundVault.sol) has costly operations inside a loop:\n\t- reservedCashflows += gross - payment.withheld (src/StructuredFundVault.sol)\n\tCalls stack containing the loop:\n\t\tStructuredFundVault.recordCashflowBatch(bytes32[],IStructuredFundCashflows.Cashflow[],uint256[])\n",
+      "rationale": "Up to 64 explicitly supplied records update principal/NAV/reserves independently. Bounded storage work preserves accounting and per-record evidence; no global holder enumeration."
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "normalized_description_sha256": "78dec87f7e4954e2d3beb927c2857e02fda4845f6052e69f66bc1f0e7929c46c",
+      "normalized_description": "StructuredFundVaultDeployer._creationCode(bytes) (src/StructuredFundVaultDeployer.sol) uses literals with too many digits:\n\t- abi.encodePacked(type()(StructuredFundVault).creationCode,configuration) (src/StructuredFundVaultDeployer.sol)\n",
+      "rationale": "Solidity-generated type(StructuredFundVault).creationCode is intentionally embedded to compute and deploy exactly the same CREATE2 code. No manually written financial constant or secret is present; bytecode size is separately gated."
+    }
+  ]
+}

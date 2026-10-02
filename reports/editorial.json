@@ -1,0 +1,16 @@
+{
+  "upstream_commit": "365b4c02879f3e882b91281d42b4f57b406205e9",
+  "eipw": "eipw 0.11.0",
+  "upstream_config_sha256": "575e0cf5f4f93c924616e3e4ab0ba49b5910b0d78e95c333fad043548a7a2357",
+  "draft_sha256": "91fea962f5ec908d635725057ab0c80905bbdaa2fb4fa48d15185a5080b7b477",
+  "pending_metadata_exceptions": [
+    "preamble-eip",
+    "preamble-file-name",
+    "preamble-discussions-to",
+    "preamble-re-discussions-to"
+  ],
+  "exit_code": 0,
+  "editorial_content_check": "passed",
+  "official_upstream_ci_run": false,
+  "submission_ready_metadata": false
+}

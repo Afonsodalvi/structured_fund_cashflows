@@ -1,0 +1,11 @@
+{
+  "findings": 12,
+  "reviewed_accepted": 12,
+  "accepted_by_check": {
+    "calls-loop": 7,
+    "costly-loop": 3,
+    "timestamp": 1,
+    "too-many-digits": 1
+  },
+  "unreviewed": []
+}

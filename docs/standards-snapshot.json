@@ -1,0 +1,101 @@
+{
+  "checked_on": "2026-10-02",
+  "upstream_commit": "365b4c02879f3e882b91281d42b4f57b406205e9",
+  "standards": [
+    {
+      "erc": 20,
+      "title": "Token Standard",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-20",
+      "source_sha256": "50d0bdc535ed8987ac5c124cb5f9c39606806c97e909aae66ef4b747dd9c93dd"
+    },
+    {
+      "erc": 165,
+      "title": "Standard Interface Detection",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-165",
+      "source_sha256": "f431a42854927b82c309060d017c5bd4f61abf8dc4679e466369e698a2d52396"
+    },
+    {
+      "erc": 3475,
+      "title": "Abstract Storage Bonds",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-3475",
+      "source_sha256": "fec8bacdaae05037ea82cc5f517713fe282db6453cc5bebe0d147a97433763fa"
+    },
+    {
+      "erc": 3525,
+      "title": "Semi-Fungible Token",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-3525",
+      "source_sha256": "8c8fff18a53638a7c3e4696f35a0947f08cc562ce4bcd91d4b5d69a18d2213c5"
+    },
+    {
+      "erc": 3643,
+      "title": "T-REX - Token for Regulated EXchanges",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-3643",
+      "source_sha256": "f1b564f7fa0ab763bf0e386eeba2e44c31f84f51b5a9a87aaa7abfba91ddd999"
+    },
+    {
+      "erc": 4626,
+      "title": "Tokenized Vaults",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-4626",
+      "source_sha256": "698c05bff73bfb796f59cd7c4732edccdf7e40176f9bb027c19a0bbe7251e10a"
+    },
+    {
+      "erc": 7518,
+      "title": "Dynamic Compliant Interop Security Token",
+      "status": "Review",
+      "url": "https://eips.ethereum.org/EIPS/eip-7518",
+      "source_sha256": "9ac7609c0e0be9a71a692865aeb8e6dbe39c3fed05de88a47b5f4a416c4fd55d"
+    },
+    {
+      "erc": 7540,
+      "title": "Asynchronous ERC-4626 Tokenized Vaults",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-7540",
+      "source_sha256": "3d517b81b0a39848241578efa6e175024ce8b52d03e15b6edda357087a38bc72"
+    },
+    {
+      "erc": 7575,
+      "title": "Multi-Asset ERC-4626 Vaults",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-7575",
+      "source_sha256": "f8cd419ec250eca9201b13ed05d4f0e698a81b074d874e499ab7724954e8b077"
+    },
+    {
+      "erc": 7776,
+      "title": "Transparent Financial Statements",
+      "status": "Review",
+      "url": "https://eips.ethereum.org/EIPS/eip-7776",
+      "source_sha256": "a1304837d9a9cbf0e53793f9ce9f3833c3cf49725ae59468adfda51a1ba50bad"
+    },
+    {
+      "erc": 7887,
+      "title": "Cancelation for ERC-7540 Tokenized Vaults",
+      "status": "Draft",
+      "url": "https://eips.ethereum.org/EIPS/eip-7887",
+      "source_sha256": "a4011f8a54d5f2b095bd3db33dd7770b957ac58841967ccab833067f01bea9c3"
+    },
+    {
+      "erc": 7943,
+      "title": "uRWA - Universal Real World Asset Interface",
+      "status": "Final",
+      "url": "https://eips.ethereum.org/EIPS/eip-7943",
+      "source_sha256": "36ed5d2db5f9675a5d6efaf56b168d7ba6d561baea98a762e73bd82272a14642"
+    }
+  ],
+  "historical_not_in_canonical_corpus": [
+    1400,
+    1404,
+    1410,
+    1594,
+    1643,
+    1644,
+    1726,
+    2222
+  ],
+  "market_ranking_claimed": false
+}

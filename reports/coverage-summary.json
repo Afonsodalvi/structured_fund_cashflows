@@ -1,0 +1,54 @@
+{
+  "StructuredFundEligibility": {
+    "branches_percent": 100.0,
+    "counts": {
+      "BRF": 0,
+      "BRH": 0,
+      "FNF": 3,
+      "FNH": 3,
+      "LF": 8,
+      "LH": 8
+    },
+    "functions_percent": 100.0,
+    "lines_percent": 100.0
+  },
+  "StructuredFundFactory": {
+    "branches_percent": 100.0,
+    "counts": {
+      "BRF": 1,
+      "BRH": 1,
+      "FNF": 3,
+      "FNH": 3,
+      "LF": 13,
+      "LH": 13
+    },
+    "functions_percent": 100.0,
+    "lines_percent": 100.0
+  },
+  "StructuredFundVault": {
+    "branches_percent": 100.0,
+    "counts": {
+      "BRF": 47,
+      "BRH": 47,
+      "FNF": 51,
+      "FNH": 51,
+      "LF": 302,
+      "LH": 298
+    },
+    "functions_percent": 100.0,
+    "lines_percent": 98.68
+  },
+  "StructuredFundVaultDeployer": {
+    "branches_percent": 100.0,
+    "counts": {
+      "BRF": 1,
+      "BRH": 1,
+      "FNF": 4,
+      "FNH": 4,
+      "LF": 9,
+      "LH": 9
+    },
+    "functions_percent": 100.0,
+    "lines_percent": 100.0
+  }
+}
