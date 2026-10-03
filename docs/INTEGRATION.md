@@ -85,3 +85,7 @@ O código não oferece deploy automático com chaves, scripts de transmissão, u
 `vault(asset)` devolve esta instância para seu asset e zero para outro endereço. `supportsInterface(0xf815c03d)` identifica o lado share de ERC-7575, além do identificador de vault já anunciado. Isso não transforma a instância em multi-asset.
 
 `recordCashflowBatch(ids, payments, navReleases)` registra entre 1 e 64 obrigações na mesma transação. Arrays precisam ter comprimentos iguais; qualquer registro inválido ou falta de funding reverte o lote inteiro, inclusive retenções já transferidas durante sua execução. Use para beneficiários de uma distribuição conjunta dentro desse limite. O settler continua responsável pela completude da lista e pela justiça da alocação. Uma distribuição maior exige projeto adicional de snapshot/epoch; dividi-la em chamadas comuns pode expor preços intermediários.
+
+## Toolchain update — 2026-10-03
+
+The reference now targets Osaka with Solidity 0.8.37 and OpenZeppelin 5.7.0. Vault/factory reentrancy guards use transient storage. See [TOOLCHAIN](TOOLCHAIN.md) for network compatibility, the final-release versus audited-channel distinction, storage/CREATE2 changes and expanded validation. The six-method SFC interface identifier is unchanged.

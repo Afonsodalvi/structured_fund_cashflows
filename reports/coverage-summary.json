@@ -10,7 +10,8 @@
       "LH": 8
     },
     "functions_percent": 100.0,
-    "lines_percent": 100.0
+    "lines_percent": 100.0,
+    "uncovered_lines": {}
   },
   "StructuredFundFactory": {
     "branches_percent": 100.0,
@@ -23,20 +24,27 @@
       "LH": 13
     },
     "functions_percent": 100.0,
-    "lines_percent": 100.0
+    "lines_percent": 100.0,
+    "uncovered_lines": {}
   },
   "StructuredFundVault": {
     "branches_percent": 100.0,
     "counts": {
-      "BRF": 47,
-      "BRH": 47,
+      "BRF": 63,
+      "BRH": 63,
       "FNF": 51,
       "FNH": 51,
-      "LF": 302,
-      "LH": 298
+      "LF": 304,
+      "LH": 300
     },
     "functions_percent": 100.0,
-    "lines_percent": 98.68
+    "lines_percent": 98.68,
+    "uncovered_lines": {
+      "153": "_pause();",
+      "157": "_unpause();",
+      "280": "_requireNotPaused();",
+      "334": "return 0;"
+    }
   },
   "StructuredFundVaultDeployer": {
     "branches_percent": 100.0,
@@ -49,6 +57,7 @@
       "LH": 9
     },
     "functions_percent": 100.0,
-    "lines_percent": 100.0
+    "lines_percent": 100.0,
+    "uncovered_lines": {}
   }
 }

@@ -47,3 +47,7 @@ O ERC proposto exige semântica interoperável de principal/cashflow; não exige
 A proposta exige ERC-4626 e ERC-165 e define composição condicional com ERC-7540; o `requires` inclui 7540 por suas regras de ciclo de vida. A referência implementa somente depósitos síncronos. A regra normativa para principal em depósitos assíncronos exige crédito apenas quando o claim entrega shares, mas esse fluxo não é implementado nem anunciado aqui.
 
 A descoberta ERC-7575 desta instância não comprova suporte a share externo ou entradas em várias moedas. O perfil SFC atual mantém o próprio vault como share e um único asset. ERC-7943 é trabalho complementar; suas funções de transferência forçada, congelamento parcial e permissões contextuais não estão implementadas pela referência.
+
+## Toolchain update — 2026-10-03
+
+The reference now targets Osaka with Solidity 0.8.37 and OpenZeppelin 5.7.0. Vault/factory reentrancy guards use transient storage. See [TOOLCHAIN](TOOLCHAIN.md) for network compatibility, the final-release versus audited-channel distinction, storage/CREATE2 changes and expanded validation. The six-method SFC interface identifier is unchanged.

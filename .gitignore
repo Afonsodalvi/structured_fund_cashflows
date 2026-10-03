@@ -10,3 +10,9 @@ __pycache__/
 .env.*
 export/
 dist/
+.tools/
+out-security/
+cache-security/
+snapshots/
+inheritance-graph.dot
+coverage-attribution.json

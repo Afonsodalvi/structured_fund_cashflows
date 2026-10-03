@@ -108,3 +108,7 @@ A referência oferece registro atômico de até 64 cashflows. Esse limite contro
 A factory cria um `StructuredFundVaultDeployer` imutável em seu construtor. Somente essa factory pode chamá-lo. O contrato auxiliar contém o bytecode de criação do vault; separar isso do controle de papéis evita exceder o limite de runtime. Um deploy inválido reverte sem consumir o escopo no registry.
 
 A criação usa CREATE2. A factory calcula o endereço a partir do mesmo bytecode e configuração usados pelo deployer, registra-o antes da criação e retorna o endereço efetivamente criado. O registro é utilizável após a transação concluir; qualquer falha do construtor desfaz a reserva. O método de criação tem proteção contra reentrância.
+
+## Toolchain update — 2026-10-03
+
+The reference now targets Osaka with Solidity 0.8.37 and OpenZeppelin 5.7.0. Vault/factory reentrancy guards use transient storage. See [TOOLCHAIN](TOOLCHAIN.md) for network compatibility, the final-release versus audited-channel distinction, storage/CREATE2 changes and expanded validation. The six-method SFC interface identifier is unchanged.

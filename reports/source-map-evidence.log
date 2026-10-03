@@ -1,0 +1,267 @@
+No files changed, compilation skipped
+
+Ran 3 tests for test/unit/StructuredFundVault.t.sol:StructuredFundVaultTest
+[PASS] test_FullAsyncClaimRetiresSupplyAndPrincipal() (gas: 656544)
+Traces:
+  [734971] StructuredFundVaultTest::test_FullAsyncClaimRetiresSupplyAndPrincipal()
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [201522] StructuredFundVault::deposit(100000000 [1e8], 0x00000000000000000000000000000000000A11cE)
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [2625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 0
+    │   ├─ [2625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 10000000000000 [1e13]
+    │   ├─ [32375] MockAsset::transferFrom(0x00000000000000000000000000000000000A11cE, StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 100000000 [1e8])
+    │   │   ├─ emit Transfer(from: 0x00000000000000000000000000000000000A11cE, to: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 100000000 [1e8])
+    │   │   └─ ← [Return] true
+    │   ├─ [625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 100000000 [1e8]
+    │   ├─ [625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 9999900000000 [9.999e12]
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x00000000000000000000000000000000000A11cE, amount: 100000000000000000000 [1e20])
+    │   ├─ emit Deposit(sender: 0x00000000000000000000000000000000000A11cE, owner: 0x00000000000000000000000000000000000A11cE, assets: 100000000 [1e8], shares: 100000000000000000000 [1e20])
+    │   └─ ← [Return] 100000000000000000000 [1e20]
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [187791] StructuredFundVault::requestRedeem(100000000000000000000 [1e20], 0x00000000000000000000000000000000000A11cE, 0x00000000000000000000000000000000000A11cE)
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ emit Transfer(from: 0x00000000000000000000000000000000000A11cE, to: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 100000000000000000000 [1e20])
+    │   ├─ emit RedeemRequest(controller: 0x00000000000000000000000000000000000A11cE, owner: 0x00000000000000000000000000000000000A11cE, requestId: 0, sender: 0x00000000000000000000000000000000000A11cE, shares: 100000000000000000000 [1e20])
+    │   └─ ← [Return] 0
+    ├─ [2534] StructuredFundVault::totalSupply() [staticcall]
+    │   └─ ← [Return] 100000000000000000000 [1e20]
+    ├─ [4074] StructuredFundVault::totalEscrowedShares() [staticcall]
+    │   └─ ← [Return] 100000000000000000000 [1e20]
+    ├─ [4206] StructuredFundVault::totalOutstandingPrincipal() [staticcall]
+    │   └─ ← [Return] 100000000 [1e8]
+    ├─ [2512] StructuredFundVault::totalLockedPrincipal() [staticcall]
+    │   └─ ← [Return] 100000000 [1e8]
+    ├─ [166767] StructuredFundVault::fulfillRedeem(0x00000000000000000000000000000000000A11cE)
+    │   ├─ emit Transfer(from: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], to: 0x0000000000000000000000000000000000000000, amount: 100000000000000000000 [1e20])
+    │   ├─ emit RedeemFulfilled(controller: 0x00000000000000000000000000000000000A11cE, shares: 100000000000000000000 [1e20], assets: 100000000 [1e8], retiredPrincipal: 100000000 [1e8])
+    │   ├─ emit PrincipalRetired(controller: 0x00000000000000000000000000000000000A11cE, principal: 100000000 [1e8], shares: 100000000000000000000 [1e20])
+    │   └─ ← [Stop]
+    ├─ [2534] StructuredFundVault::totalSupply() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [4206] StructuredFundVault::totalOutstandingPrincipal() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [4337] StructuredFundVault::claimableRedeemRequest(0, 0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   └─ ← [Return] 100000000000000000000 [1e20]
+    ├─ [14036] StructuredFundVault::maxWithdraw(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] 100000000 [1e8]
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [77873] StructuredFundVault::redeem(100000000000000000000 [1e20], 0x00000000000000000000000000000000000A11cE, 0x00000000000000000000000000000000000A11cE)
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [2625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 100000000 [1e8]
+    │   ├─ [2625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 9999900000000 [9.999e12]
+    │   ├─ [13123] MockAsset::transfer(0x00000000000000000000000000000000000A11cE, 100000000 [1e8])
+    │   │   ├─ emit Transfer(from: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], to: 0x00000000000000000000000000000000000A11cE, amount: 100000000 [1e8])
+    │   │   └─ ← [Return] true
+    │   ├─ [625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 0
+    │   ├─ [625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 10000000000000 [1e13]
+    │   ├─ emit Withdraw(sender: 0x00000000000000000000000000000000000A11cE, receiver: 0x00000000000000000000000000000000000A11cE, owner: 0x00000000000000000000000000000000000A11cE, assets: 100000000 [1e8], shares: 100000000000000000000 [1e20])
+    │   └─ ← [Return] 100000000 [1e8]
+    ├─ [4008] StructuredFundVault::reservedRedemptions() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [2625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   └─ ← [Return] 0
+    └─ ← [Return]
+
+[PASS] test_MaxFunctionsTrackCapPauseEligibilityAndClaimable() (gas: 760041)
+Traces:
+  [818094] StructuredFundVaultTest::test_MaxFunctionsTrackCapPauseEligibilityAndClaimable()
+    ├─ [8739] StructuredFundVault::maxDeposit(0x0000000000000000000000000000000000000Bad) [staticcall]
+    │   ├─ [2679] StructuredFundEligibility::isEligible(0x0000000000000000000000000000000000000Bad) [staticcall]
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] 0
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [201534] StructuredFundVault::deposit(1000000000000 [1e12], 0x00000000000000000000000000000000000A11cE)
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [2625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 0
+    │   ├─ [2625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 10000000000000 [1e13]
+    │   ├─ [32375] MockAsset::transferFrom(0x00000000000000000000000000000000000A11cE, StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 1000000000000 [1e12])
+    │   │   ├─ emit Transfer(from: 0x00000000000000000000000000000000000A11cE, to: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 1000000000000 [1e12])
+    │   │   └─ ← [Return] true
+    │   ├─ [625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 1000000000000 [1e12]
+    │   ├─ [625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 9000000000000 [9e12]
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x00000000000000000000000000000000000A11cE, amount: 1000000000000000000000000 [1e24])
+    │   ├─ emit Deposit(sender: 0x00000000000000000000000000000000000A11cE, owner: 0x00000000000000000000000000000000000A11cE, assets: 1000000000000 [1e12], shares: 1000000000000000000000000 [1e24])
+    │   └─ ← [Return] 1000000000000000000000000 [1e24]
+    ├─ [15248] StructuredFundVault::maxDeposit(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] 0
+    ├─ [19295] StructuredFundVault::maxMint(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] 0
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [187929] StructuredFundVault::requestRedeem(1000000000000000000 [1e18], 0x00000000000000000000000000000000000A11cE, 0x00000000000000000000000000000000000A11cE)
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ emit Transfer(from: 0x00000000000000000000000000000000000A11cE, to: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 1000000000000000000 [1e18])
+    │   ├─ emit RedeemRequest(controller: 0x00000000000000000000000000000000000A11cE, owner: 0x00000000000000000000000000000000000A11cE, requestId: 0, sender: 0x00000000000000000000000000000000000A11cE, shares: 1000000000000000000 [1e18])
+    │   └─ ← [Return] 0
+    ├─ [166767] StructuredFundVault::fulfillRedeem(0x00000000000000000000000000000000000A11cE)
+    │   ├─ emit Transfer(from: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], to: 0x0000000000000000000000000000000000000000, amount: 1000000000000000000 [1e18])
+    │   ├─ emit RedeemFulfilled(controller: 0x00000000000000000000000000000000000A11cE, shares: 1000000000000000000 [1e18], assets: 1000000 [1e6], retiredPrincipal: 1000000 [1e6])
+    │   ├─ emit PrincipalRetired(controller: 0x00000000000000000000000000000000000A11cE, principal: 1000000 [1e6], shares: 1000000000000000000 [1e18])
+    │   └─ ← [Stop]
+    ├─ [14212] StructuredFundVault::maxRedeem(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] 1000000000000000000 [1e18]
+    ├─ [47734] StructuredFundVault::pause()
+    │   ├─ emit Paused(account: StructuredFundVaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop]
+    ├─ [4084] StructuredFundVault::maxRedeem(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [3908] StructuredFundVault::maxWithdraw(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [30045] StructuredFundVault::unpause()
+    │   ├─ emit Unpaused(account: StructuredFundVaultTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop]
+    ├─ [50543] StructuredFundEligibility::setEligibility(0x00000000000000000000000000000000000A11cE, true, true)
+    │   ├─ emit EligibilityUpdated(account: 0x00000000000000000000000000000000000A11cE, approved: true, frozen: true)
+    │   └─ ← [Stop]
+    ├─ [11842] StructuredFundVault::maxWithdraw(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] 0
+    └─ ← [Return]
+
+[PASS] test_TransferMovesPrincipalProportionally() (gas: 415335)
+Traces:
+  [424935] StructuredFundVaultTest::test_TransferMovesPrincipalProportionally()
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [201522] StructuredFundVault::deposit(100000000 [1e8], 0x00000000000000000000000000000000000A11cE)
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [2625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 0
+    │   ├─ [2625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 10000000000000 [1e13]
+    │   ├─ [32375] MockAsset::transferFrom(0x00000000000000000000000000000000000A11cE, StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 100000000 [1e8])
+    │   │   ├─ emit Transfer(from: 0x00000000000000000000000000000000000A11cE, to: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 100000000 [1e8])
+    │   │   └─ ← [Return] true
+    │   ├─ [625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 100000000 [1e8]
+    │   ├─ [625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 9999900000000 [9.999e12]
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x00000000000000000000000000000000000A11cE, amount: 100000000000000000000 [1e20])
+    │   ├─ emit Deposit(sender: 0x00000000000000000000000000000000000A11cE, owner: 0x00000000000000000000000000000000000A11cE, assets: 100000000 [1e8], shares: 100000000000000000000 [1e20])
+    │   └─ ← [Return] 100000000000000000000 [1e20]
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [100142] StructuredFundVault::transfer(0x0000000000000000000000000000000000000B0b, 40000000000000000000 [4e19])
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x0000000000000000000000000000000000000B0b) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ emit PrincipalMoved(from: 0x00000000000000000000000000000000000A11cE, to: 0x0000000000000000000000000000000000000B0b, principal: 40000000 [4e7])
+    │   ├─ emit Transfer(from: 0x00000000000000000000000000000000000A11cE, to: 0x0000000000000000000000000000000000000B0b, amount: 40000000000000000000 [4e19])
+    │   └─ ← [Return] true
+    ├─ [3168] StructuredFundVault::principalOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   └─ ← [Return] 60000000 [6e7]
+    ├─ [3168] StructuredFundVault::principalOf(0x0000000000000000000000000000000000000B0b) [staticcall]
+    │   └─ ← [Return] 40000000 [4e7]
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [65792] StructuredFundVault::transfer(0x0000000000000000000000000000000000000B0b, 60000000000000000000 [6e19])
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x0000000000000000000000000000000000000B0b) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ emit PrincipalMoved(from: 0x00000000000000000000000000000000000A11cE, to: 0x0000000000000000000000000000000000000B0b, principal: 60000000 [6e7])
+    │   ├─ emit Transfer(from: 0x00000000000000000000000000000000000A11cE, to: 0x0000000000000000000000000000000000000B0b, amount: 60000000000000000000 [6e19])
+    │   └─ ← [Return] true
+    ├─ [3168] StructuredFundVault::principalOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [3168] StructuredFundVault::principalOf(0x0000000000000000000000000000000000000B0b) [staticcall]
+    │   └─ ← [Return] 100000000 [1e8]
+    ├─ [4206] StructuredFundVault::totalOutstandingPrincipal() [staticcall]
+    │   └─ ← [Return] 100000000 [1e8]
+    └─ ← [Return]
+
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 1.31ms (888.08µs CPU time)
+
+Ran 1 test for test/security/StructuredFundSecurity.t.sol:StructuredFundSecurityTest
+[PASS] test_SecuritySharesDoNotTransferDuringPause() (gas: 296415)
+Traces:
+  [296415] StructuredFundSecurityTest::test_SecuritySharesDoNotTransferDuringPause()
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [201522] StructuredFundVault::deposit(1000000 [1e6], 0x00000000000000000000000000000000000A11cE)
+    │   ├─ [4866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ [2625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 0
+    │   ├─ [2625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 10000000000000 [1e13]
+    │   ├─ [32375] MockAsset::transferFrom(0x00000000000000000000000000000000000A11cE, StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], 1000000 [1e6])
+    │   │   ├─ emit Transfer(from: 0x00000000000000000000000000000000000A11cE, to: StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a], amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ [625] MockAsset::balanceOf(StructuredFundVault: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a]) [staticcall]
+    │   │   └─ ← [Return] 1000000 [1e6]
+    │   ├─ [625] MockAsset::balanceOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] 9999999000000 [9.999e12]
+    │   ├─ [866] StructuredFundEligibility::isEligible(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   │   └─ ← [Return] true
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x00000000000000000000000000000000000A11cE, amount: 1000000000000000000 [1e18])
+    │   ├─ emit Deposit(sender: 0x00000000000000000000000000000000000A11cE, owner: 0x00000000000000000000000000000000000A11cE, assets: 1000000 [1e6], shares: 1000000000000000000 [1e18])
+    │   └─ ← [Return] 1000000000000000000 [1e18]
+    ├─ [47734] StructuredFundVault::pause()
+    │   ├─ emit Paused(account: StructuredFundSecurityTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496])
+    │   └─ ← [Stop]
+    ├─ [0] VM::prank(0x00000000000000000000000000000000000A11cE)
+    │   └─ ← [Return]
+    ├─ [0] VM::expectRevert(custom error 0xf4844814)
+    │   └─ ← [Return]
+    ├─ [27570] StructuredFundVault::transfer(0x0000000000000000000000000000000000000B0b, 1000000000000000000 [1e18])
+    │   └─ ← [Revert] EnforcedPause()
+    ├─ [3168] StructuredFundVault::principalOf(0x00000000000000000000000000000000000A11cE) [staticcall]
+    │   └─ ← [Return] 1000000 [1e6]
+    └─ ← [Return]
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.60ms (670.50µs CPU time)
+
+Ran 2 test suites in 8.99ms (2.91ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

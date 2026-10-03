@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
+pragma solidity 0.8.37;
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract MockAsset is ERC20 {
@@ -8,6 +8,7 @@ contract MockAsset is ERC20 {
     address public callbackTarget;
     bytes public callbackData;
     bool public callbackSucceeded;
+    bytes public callbackReturnData;
     bool public requireCallback;
 
     constructor(uint8 d) ERC20("Reference USD", "rUSD") {
@@ -35,8 +36,9 @@ contract MockAsset is ERC20 {
     function _update(address from, address to, uint256 value) internal override {
         if (from != address(0) && to != address(0)) {
             if (callbackTarget != address(0)) {
-                (bool ok,) = callbackTarget.call(callbackData);
+                (bool ok, bytes memory result) = callbackTarget.call(callbackData);
                 callbackSucceeded = ok;
+                callbackReturnData = result;
                 if (requireCallback) require(ok, "callback failed");
             }
             uint256 fee = value * feeBps / 10_000;

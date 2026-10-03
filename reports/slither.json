@@ -9,7 +9,7 @@
             "type": "function",
             "name": "_pullExact",
             "source_mapping": {
-              "start": 23802,
+              "start": 23829,
               "length": 468,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -35,8 +35,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -631,7 +631,7 @@
             "type": "node",
             "name": "beforeSender = token.balanceOf(from)",
             "source_mapping": {
-              "start": 23974,
+              "start": 24001,
               "length": 44,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -648,7 +648,7 @@
                 "type": "function",
                 "name": "_pullExact",
                 "source_mapping": {
-                  "start": 23802,
+                  "start": 23829,
                   "length": 468,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -674,8 +674,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -1275,7 +1275,8 @@
         "id": "0362ff9143762c29f4eda0629fda1a3191f59ccd0dc5b50eb59544b0b7f6c654",
         "check": "calls-loop",
         "impact": "Low",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
       },
       {
         "elements": [
@@ -1283,7 +1284,7 @@
             "type": "function",
             "name": "_pullExact",
             "source_mapping": {
-              "start": 23802,
+              "start": 23829,
               "length": 468,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -1309,8 +1310,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -1905,7 +1906,7 @@
             "type": "node",
             "name": "token.balanceOf(address(this)) != beforeBalance + assets || token.balanceOf(from) + assets != beforeSender",
             "source_mapping": {
-              "start": 24093,
+              "start": 24120,
               "length": 106,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -1922,7 +1923,7 @@
                 "type": "function",
                 "name": "_pullExact",
                 "source_mapping": {
-                  "start": 23802,
+                  "start": 23829,
                   "length": 468,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -1948,8 +1949,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -2549,7 +2550,8 @@
         "id": "0b5d70a03ea3c3593cab5e3cffd90c5b2f2f29c3e2a7e299742967ce6bf2a586",
         "check": "calls-loop",
         "impact": "Low",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
       },
       {
         "elements": [
@@ -2557,7 +2559,7 @@
             "type": "function",
             "name": "_eligible",
             "source_mapping": {
-              "start": 6711,
+              "start": 6738,
               "length": 290,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -2581,8 +2583,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -3177,7 +3179,7 @@
             "type": "node",
             "name": "ok = eligibility.isEligible(account)",
             "source_mapping": {
-              "start": 6863,
+              "start": 6890,
               "length": 132,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -3198,7 +3200,7 @@
                 "type": "function",
                 "name": "_eligible",
                 "source_mapping": {
-                  "start": 6711,
+                  "start": 6738,
                   "length": 290,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -3222,8 +3224,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -3823,7 +3825,8 @@
         "id": "371dd1dad691465d26d804981e7b0a15af3ca8ee5110bfc7bb44b5467f4a455c",
         "check": "calls-loop",
         "impact": "Low",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
       },
       {
         "elements": [
@@ -3831,7 +3834,7 @@
             "type": "function",
             "name": "_pushExact",
             "source_mapping": {
-              "start": 24276,
+              "start": 24303,
               "length": 466,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -3857,8 +3860,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -4453,7 +4456,7 @@
             "type": "node",
             "name": "token.balanceOf(address(this)) + assets != beforeVault || token.balanceOf(to) != beforeReceiver + assets",
             "source_mapping": {
-              "start": 24575,
+              "start": 24602,
               "length": 104,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -4470,7 +4473,7 @@
                 "type": "function",
                 "name": "_pushExact",
                 "source_mapping": {
-                  "start": 24276,
+                  "start": 24303,
                   "length": 466,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -4496,8 +4499,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -5097,7 +5100,8 @@
         "id": "5a704df4e749a7478acc36b12195071a04c4f779ac6f7bf00d70b8df0b5ed486",
         "check": "calls-loop",
         "impact": "Low",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
       },
       {
         "elements": [
@@ -5105,7 +5109,7 @@
             "type": "function",
             "name": "_pushExact",
             "source_mapping": {
-              "start": 24276,
+              "start": 24303,
               "length": 466,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -5131,8 +5135,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -5727,7 +5731,7 @@
             "type": "node",
             "name": "beforeVault = token.balanceOf(address(this))",
             "source_mapping": {
-              "start": 24415,
+              "start": 24442,
               "length": 52,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -5744,7 +5748,7 @@
                 "type": "function",
                 "name": "_pushExact",
                 "source_mapping": {
-                  "start": 24276,
+                  "start": 24303,
                   "length": 466,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -5770,8 +5774,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -6371,7 +6375,8 @@
         "id": "6b0c4cfd61a29a8b57534685cc8025a538c4c85be3558f23d96e75d2bf45d1a9",
         "check": "calls-loop",
         "impact": "Low",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
       },
       {
         "elements": [
@@ -6379,7 +6384,7 @@
             "type": "function",
             "name": "_pushExact",
             "source_mapping": {
-              "start": 24276,
+              "start": 24303,
               "length": 466,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -6405,8 +6410,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -7001,7 +7006,7 @@
             "type": "node",
             "name": "beforeReceiver = token.balanceOf(to)",
             "source_mapping": {
-              "start": 24477,
+              "start": 24504,
               "length": 44,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -7018,7 +7023,7 @@
                 "type": "function",
                 "name": "_pushExact",
                 "source_mapping": {
-                  "start": 24276,
+                  "start": 24303,
                   "length": 466,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -7044,8 +7049,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -7645,7 +7650,8 @@
         "id": "92497d5732686f63b1fc2115dfe682d541aa32cae0b0a9b19db55789c19fa3c7",
         "check": "calls-loop",
         "impact": "Low",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
       },
       {
         "elements": [
@@ -7653,7 +7659,7 @@
             "type": "function",
             "name": "_pullExact",
             "source_mapping": {
-              "start": 23802,
+              "start": 23829,
               "length": 468,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -7679,8 +7685,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -8275,7 +8281,7 @@
             "type": "node",
             "name": "beforeBalance = token.balanceOf(address(this))",
             "source_mapping": {
-              "start": 23910,
+              "start": 23937,
               "length": 54,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -8292,7 +8298,7 @@
                 "type": "function",
                 "name": "_pullExact",
                 "source_mapping": {
-                  "start": 23802,
+                  "start": 23829,
                   "length": 468,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -8318,8 +8324,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -8919,7 +8925,8 @@
         "id": "d2cd7571149765eeb8bb54db46f7a90b08f51f3380f610d8d69e869e73cc9050",
         "check": "calls-loop",
         "impact": "Low",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
       },
       {
         "elements": [
@@ -8927,7 +8934,7 @@
             "type": "function",
             "name": "_recordCashflow",
             "source_mapping": {
-              "start": 21198,
+              "start": 21225,
               "length": 2002,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -8980,8 +8987,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -9576,7 +9583,7 @@
             "type": "node",
             "name": "id == bytes32(0) || _cashflows[id].beneficiary != address(0) || payment.claimed || payment.evidenceHash == bytes32(0) || payment.periodStart >= payment.periodEnd || payment.periodEnd > block.timestamp || payment.periodStart < lastCashflowPeriodEnd[payment.beneficiary] || payment.withheld > payment.grossYield || payment.principal > principalOf[payment.beneficiary] || navRelease < payment.principal || navRelease > creditNAV || navRelease > payment.principal + payment.grossYield || payment.principal + payment.grossYield == 0",
             "source_mapping": {
-              "start": 21317,
+              "start": 21344,
               "length": 623,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -9599,7 +9606,7 @@
                 "type": "function",
                 "name": "_recordCashflow",
                 "source_mapping": {
-                  "start": 21198,
+                  "start": 21225,
                   "length": 2002,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -9652,8 +9659,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -10253,7 +10260,8 @@
         "id": "f2f11157f6f8ed6813414985a800a338c5cba374b6e55ed6e562881ea85e94fe",
         "check": "timestamp",
         "impact": "Low",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp"
       },
       {
         "elements": [
@@ -10261,7 +10269,7 @@
             "type": "function",
             "name": "_recordCashflow",
             "source_mapping": {
-              "start": 21198,
+              "start": 21225,
               "length": 2002,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -10314,8 +10322,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -10910,7 +10918,7 @@
             "type": "node",
             "name": "creditNAV -= navRelease",
             "source_mapping": {
-              "start": 22574,
+              "start": 22601,
               "length": 23,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -10927,7 +10935,7 @@
                 "type": "function",
                 "name": "_recordCashflow",
                 "source_mapping": {
-                  "start": 21198,
+                  "start": 21225,
                   "length": 2002,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -10980,8 +10988,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -11581,7 +11589,8 @@
         "id": "5a2665c634fd4a97bc30cf554fd4305ddaf05f3f8c1a0b6d14b98833808045e1",
         "check": "costly-loop",
         "impact": "Informational",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop"
       },
       {
         "elements": [
@@ -11589,7 +11598,7 @@
             "type": "function",
             "name": "_recordCashflow",
             "source_mapping": {
-              "start": 21198,
+              "start": 21225,
               "length": 2002,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -11642,8 +11651,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -12238,7 +12247,7 @@
             "type": "node",
             "name": "totalOutstandingPrincipal -= payment.principal",
             "source_mapping": {
-              "start": 22321,
+              "start": 22348,
               "length": 46,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -12255,7 +12264,7 @@
                 "type": "function",
                 "name": "_recordCashflow",
                 "source_mapping": {
-                  "start": 21198,
+                  "start": 21225,
                   "length": 2002,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -12308,8 +12317,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -12909,7 +12918,8 @@
         "id": "b5291c488fc83035d4802e7b80ba0c88ff9606cbd877415f043dc36c7a4845bc",
         "check": "costly-loop",
         "impact": "Informational",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop"
       },
       {
         "elements": [
@@ -12917,7 +12927,7 @@
             "type": "function",
             "name": "_recordCashflow",
             "source_mapping": {
-              "start": 21198,
+              "start": 21225,
               "length": 2002,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -12970,8 +12980,8 @@
                 "type": "contract",
                 "name": "StructuredFundVault",
                 "source_mapping": {
-                  "start": 1017,
-                  "length": 23727,
+                  "start": 1035,
+                  "length": 23736,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
                   "filename_short": "src/StructuredFundVault.sol",
@@ -13566,7 +13576,7 @@
             "type": "node",
             "name": "reservedCashflows += gross - payment.withheld",
             "source_mapping": {
-              "start": 22607,
+              "start": 22634,
               "length": 45,
               "filename_relative": "src/StructuredFundVault.sol",
               "filename_absolute": "src/StructuredFundVault.sol",
@@ -13583,7 +13593,7 @@
                 "type": "function",
                 "name": "_recordCashflow",
                 "source_mapping": {
-                  "start": 21198,
+                  "start": 21225,
                   "length": 2002,
                   "filename_relative": "src/StructuredFundVault.sol",
                   "filename_absolute": "src/StructuredFundVault.sol",
@@ -13636,8 +13646,8 @@
                     "type": "contract",
                     "name": "StructuredFundVault",
                     "source_mapping": {
-                      "start": 1017,
-                      "length": 23727,
+                      "start": 1035,
+                      "length": 23736,
                       "filename_relative": "src/StructuredFundVault.sol",
                       "filename_absolute": "src/StructuredFundVault.sol",
                       "filename_short": "src/StructuredFundVault.sol",
@@ -14237,7 +14247,8 @@
         "id": "f947b8f9e45f25a08c1daf6813c0b382e984803270f6c2b4c7fb3ad8913acd09",
         "check": "costly-loop",
         "impact": "Informational",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop"
       },
       {
         "elements": [
@@ -14385,7 +14396,8 @@
         "id": "e1e16465d32d1fa38518ad67ca8b205e4205f33d7599092c1d84ef2fc11fcea1",
         "check": "too-many-digits",
         "impact": "Informational",
-        "confidence": "Medium"
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits"
       }
     ]
   }

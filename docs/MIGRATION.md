@@ -9,3 +9,7 @@ For an existing fund, inventory the actual deployed implementations and authorit
 Start adoption with a new series when practical. Existing positions require an explicit, product-specific migration module and fork tests against the real contracts. Never use a normal deposit without transferring assets to simulate a migration: it creates fictitious funding.
 
 The current profile requires one fungible class, one asset denomination and the vault itself as share token. A pooled external token spanning asset entry points needs an extension of the accounting model before migration can be called conformant.
+
+## Toolchain update — 2026-10-03
+
+The reference now targets Osaka with Solidity 0.8.37 and OpenZeppelin 5.7.0. Vault/factory reentrancy guards use transient storage. See [TOOLCHAIN](TOOLCHAIN.md) for network compatibility, the final-release versus audited-channel distinction, storage/CREATE2 changes and expanded validation. The six-method SFC interface identifier is unchanged.

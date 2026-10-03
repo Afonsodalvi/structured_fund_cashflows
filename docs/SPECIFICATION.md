@@ -32,7 +32,7 @@ The domain of a cashflow identifier is the chain, the vault address, its scope, 
 
 ```solidity
 // SPDX-License-Identifier: CC0-1.0
-pragma solidity 0.8.28;
+pragma solidity 0.8.37;
 
 interface IStructuredFundCashflows {
     struct Cashflow {

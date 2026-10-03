@@ -22,10 +22,10 @@ jobs:
           python-version: '3.12'
       - uses: foundry-rs/foundry-toolchain@908c540300062bd5a7e473851cdb4282204cee09
         with:
-          version: v1.7.1
+          version: v1.8.4
       - name: Install pinned analysis tools
         run: |
-          python -m pip install slither-analyzer==0.11.3
+          python -m pip install slither-analyzer==0.11.6
           cargo install eipw --version 0.11.0 --locked
       - name: Verify specification and implementation
         run: ./scripts/verify.sh

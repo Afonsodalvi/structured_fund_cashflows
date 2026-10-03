@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
+pragma solidity 0.8.37;
 import {Test} from "forge-std/Test.sol";
 import {StructuredFundVault} from "../src/StructuredFundVault.sol";
 import {StructuredFundEligibility} from "../src/StructuredFundEligibility.sol";
@@ -62,8 +62,8 @@ abstract contract StructuredFundBase is Test {
             p,
             y,
             w,
-            uint64(block.timestamp - 100),
-            uint64(block.timestamp),
+            uint64(vm.getBlockTimestamp() - 100),
+            uint64(vm.getBlockTimestamp()),
             keccak256("settlement evidence"),
             false
         );

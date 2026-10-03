@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
+pragma solidity 0.8.37;
 import {StructuredFundBase} from "../Base.t.sol";
 import {Test} from "forge-std/Test.sol";
 import {StructuredFundVault} from "../../src/StructuredFundVault.sol";
@@ -14,6 +14,9 @@ contract StructuredFundHandler is Test {
     MockAsset public immutable asset;
     address[3] public actors;
     bytes32[] public ids;
+    mapping(bytes32 => bytes32) public originalTerms;
+    mapping(bytes32 => bool) public consumed;
+    uint256 public donatedAssets;
     uint256 public depositedPrincipal;
     uint256 public retiredByRedeem;
     uint256 public amortizedPrincipal;
@@ -190,16 +193,18 @@ contract StructuredFundHandler is Test {
         if (p + y == 0) return;
         uint256 w = bound(taxSeed, 0, y);
         uint64 start = vault.lastCashflowPeriodEnd(a);
-        if (start == 0) start = uint64(block.timestamp - 1);
-        vm.warp(block.timestamp + 1);
+        if (start == 0) start = uint64(vm.getBlockTimestamp() - 1);
+        vm.warp(vm.getBlockTimestamp() + 1);
         bytes32 id = keccak256(abi.encode("cashflow", ++nonce));
-        IStructuredFundCashflows.Cashflow memory pay =
-            IStructuredFundCashflows.Cashflow(a, p, y, w, start, uint64(block.timestamp), keccak256("evidence"), false);
+        IStructuredFundCashflows.Cashflow memory pay = IStructuredFundCashflows.Cashflow(
+            a, p, y, w, start, uint64(vm.getBlockTimestamp()), keccak256("evidence"), false
+        );
         asset.mint(address(this), p + y);
         uint256 release = p + min(y, vault.creditNAV() - p);
         vault.recordCashflow(id, pay, release);
         expectedNAV -= int256(release);
         ids.push(id);
+        originalTerms[id] = keccak256(abi.encode(pay));
         amortizedPrincipal += p;
         cashflowNetRecorded += p + y - w;
     }
@@ -211,6 +216,61 @@ contract StructuredFundHandler is Test {
         if (p.claimed || !policy.isEligible(p.beneficiary)) return;
         vm.prank(p.beneficiary);
         cashflowNetClaimed += vault.claimCashflow(id, p.beneficiary);
+        consumed[id] = true;
+    }
+
+    function recordBatch(uint96 principalSeed, uint96 yieldSeed, uint96 taxSeed) external {
+        if (vault.paused()) return;
+        for (uint256 i; i < 3; ++i) {
+            if (!policy.isEligible(actors[i])) return;
+        }
+        bytes32[] memory batchIds = new bytes32[](3);
+        IStructuredFundCashflows.Cashflow[] memory payments = new IStructuredFundCashflows.Cashflow[](3);
+        uint256[] memory releases = new uint256[](3);
+        uint256 remainingNAV = vault.creditNAV();
+        uint256 grossFunding;
+        vm.warp(vm.getBlockTimestamp() + 1);
+        for (uint256 i; i < 3; ++i) {
+            address a = actors[i];
+            uint256 p = bound(principalSeed, 0, min(vault.principalOf(a), remainingNAV));
+            uint256 y = bound(yieldSeed, 1, 100e6);
+            uint256 w = bound(taxSeed, 0, y);
+            uint64 start = vault.lastCashflowPeriodEnd(a);
+            if (start == 0) start = uint64(vm.getBlockTimestamp() - 1);
+            batchIds[i] = keccak256(abi.encode("batch", ++nonce));
+            payments[i] = IStructuredFundCashflows.Cashflow(
+                a, p, y, w, start, uint64(vm.getBlockTimestamp()), keccak256("batch evidence"), false
+            );
+            releases[i] = p + min(y, remainingNAV - p);
+            remainingNAV -= releases[i];
+            grossFunding += p + y;
+        }
+        asset.mint(address(this), grossFunding);
+        vault.recordCashflowBatch(batchIds, payments, releases);
+        for (uint256 i; i < 3; ++i) {
+            ids.push(batchIds[i]);
+            originalTerms[batchIds[i]] = keccak256(abi.encode(payments[i]));
+            amortizedPrincipal += payments[i].principal;
+            cashflowNetRecorded += payments[i].principal + payments[i].grossYield - payments[i].withheld;
+            expectedNAV -= int256(releases[i]);
+        }
+    }
+
+    function donate(uint96 amountSeed) external {
+        uint256 amount = bound(amountSeed, 1, 1000e6);
+        asset.mint(address(vault), amount);
+        donatedAssets += amount;
+    }
+
+    function delegatedTransfer(uint256 fromSeed, uint256 toSeed, uint96 shareSeed) external {
+        address a = _actor(fromSeed);
+        address b = _actor(toSeed);
+        uint256 balance = vault.balanceOf(a);
+        if (vault.paused() || !policy.isEligible(a) || !policy.isEligible(b) || balance == 0) return;
+        uint256 shares = bound(shareSeed, 0, balance);
+        vm.prank(a);
+        vault.approve(address(this), shares);
+        vault.transferFrom(a, b, shares);
     }
 
     function togglePause() external {
@@ -239,7 +299,7 @@ contract StructuredFundInvariantTest is StructuredFundBase {
         vault.grantRole(vault.VALUER_ROLE(), address(handler));
         vault.grantRole(vault.PAUSER_ROLE(), address(handler));
         policy.grantRole(policy.COMPLIANCE_ROLE(), address(handler));
-        bytes4[] memory selectors = new bytes4[](17);
+        bytes4[] memory selectors = new bytes4[](20);
         selectors[0] = handler.deposit.selector;
         selectors[1] = handler.exactMint.selector;
         selectors[2] = handler.transfer.selector;
@@ -257,6 +317,9 @@ contract StructuredFundInvariantTest is StructuredFundBase {
         selectors[14] = handler.claimCashflow.selector;
         selectors[15] = handler.togglePause.selector;
         selectors[16] = handler.toggleFreeze.selector;
+        selectors[17] = handler.recordBatch.selector;
+        selectors[18] = handler.donate.selector;
+        selectors[19] = handler.delegatedTransfer.selector;
         targetSelector(FuzzSelector({addr: address(handler), selectors: selectors}));
         targetContract(address(handler));
     }
@@ -297,7 +360,7 @@ contract StructuredFundInvariantTest is StructuredFundBase {
     function invariant_ExactLiquidityAndReserveBacking() public view {
         assertEq(
             asset.balanceOf(address(vault)),
-            vault.managedCash() + vault.reservedRedemptions() + vault.reservedCashflows()
+            vault.managedCash() + vault.reservedRedemptions() + vault.reservedCashflows() + handler.donatedAssets()
         );
         assertLe(vault.totalAssets(), vault.assetCap());
         assertEq(vault.totalAssets(), vault.managedCash() + vault.creditNAV());
@@ -325,5 +388,36 @@ contract StructuredFundInvariantTest is StructuredFundBase {
         }
         assertEq(owed, vault.reservedCashflows());
         assertEq(handler.cashflowNetRecorded(), handler.cashflowNetClaimed() + owed);
+    }
+
+    function invariant_RecordedTermsAreImmutableAndClaimsAreMonotonic() public view {
+        uint256 count = handler.idsLength();
+        for (uint256 i; i < count; ++i) {
+            bytes32 id = handler.ids(i);
+            IStructuredFundCashflows.Cashflow memory p = vault.cashflow(id);
+            assertEq(p.claimed, handler.consumed(id));
+            p.claimed = false;
+            assertEq(keccak256(abi.encode(p)), handler.originalTerms(id));
+        }
+    }
+
+    function invariant_LimitViewsRespectPauseEligibilityAndCapacity() public view {
+        for (uint256 i; i < 3; ++i) {
+            address a = handler.actors(i);
+            uint256 deposits = vault.maxDeposit(a);
+            uint256 mints = vault.maxMint(a);
+            uint256 redemptions = vault.maxRedeem(a);
+            uint256 withdrawals = vault.maxWithdraw(a);
+            if (vault.paused() || !policy.isEligible(a)) {
+                assertEq(deposits | mints | redemptions | withdrawals, 0);
+            } else {
+                assertLe(deposits, vault.assetCap() - vault.totalAssets());
+                assertLe(mints, vault.MAX_SHARES() - vault.totalSupply());
+                assertLe(vault.previewMint(mints), deposits);
+                (,, uint256 shares, uint256 assets,,,) = vault.redeemState(a);
+                assertEq(redemptions, shares);
+                assertEq(withdrawals, assets);
+            }
+        }
     }
 }

@@ -40,13 +40,16 @@ Não há `tx.origin`, delegatecall, proxy, DiamondCut, upgrade, arbitrária exec
 
 ## Invariantes de estado
 
-A suíte percorre 17 tipos de ação: entrada, mint exato, transferência, request, fulfillment, claims por shares/assets, cancelamento e claim, deploy, repay, valuation, cashflow e claim, pausa e congelamento. Há três investidores e ghost counters independentes das variáveis de produção. `fail_on_revert = true` torna revert inesperado uma falha. O handler evita chamadas sabidamente inválidas; ataques e guardas rejeitados são cobertos separadamente na suíte security.
+A suíte percorre 20 tipos de ação: entrada, mint exato, transferência, request, fulfillment, claims por shares/assets, cancelamento e claim, deploy, repay, valuation, cashflow e claim, pausa, congelamento, batches, doações e transferências por allowance. Há três investidores e ghost counters independentes das variáveis de produção. `fail_on_revert = true` torna revert inesperado uma falha. O handler evita chamadas sabidamente inválidas; ataques e guardas rejeitados são cobertos separadamente na suíte security.
 
 1. Supply = cotas livres + escrow; saldo do vault = requests pending + cancelamentos claimable.
 2. Principal outstanding = principal livre + principal bloqueado. Principal captado = outstanding + amortizado + aposentado em resgate.
-3. Saldo exato de asset = caixa gerido + reservas, nas sequências sem doação; NAV = caixa gerido + NAV de crédito e respeita o cap. Um ghost ledger independente reconcilia aportes, variações de valuation, baixas de cashflow e resgates.
+3. Saldo exato de asset = caixa gerido + reservas + doações rastreadas separadamente; NAV = caixa gerido + NAV de crédito e respeita o cap. Um ghost ledger independente reconcilia aportes, variações de valuation, baixas de cashflow e resgates.
 4. Reservas de resgate = soma das obrigações por controlador; valor fulfilled = valor pago + reserva.
 5. Reservas de cashflow = soma dos registros não consumidos; líquido registrado = líquido pago + reserva.
+
+6. Campos de cada cashflow permanecem idênticos ao compromisso original; `claimed` acompanha o ghost ledger de consumo.
+7. Limites de entrada e saída respeitam pausa, elegibilidade, cap e direitos claimable.
 
 Esses testes são exploração aleatória com limites finitos. Não são demonstração matemática de todos os estados nem prova formal.
 
@@ -69,3 +72,7 @@ O pacote não apresenta o protocolo como “sem riscos” ou “perfeito”. Os 
 Os testes adicionais verificam a descoberta ERC-7575 do share, o orçamento de 30.000 gas de ERC-165 e a atomicidade de lotes: registro tardio inválido, funding insuficiente e callback privilegiado. O batch não comprova completude ou fairness. Divisões de uma distribuição econômica entre transações precisam de bloqueio de operações sensíveis ao preço ou de um mecanismo próprio de epoch; esse mecanismo não faz parte da referência. Não anunciar suporte ao ERC-7943 ou ao ERC-3643 completo a partir da allowlist simples.
 
 O achado informativo `too-many-digits` corresponde a `type(StructuredFundVault).creationCode`, bytecode produzido pelo compilador para CREATE2. Foi revisado como código de criação, não como constante financeira escrita manualmente. O gate de tamanho continua ativo.
+
+## Atualização de 03/10/2026
+
+O vault e a factory usam `ReentrancyGuardTransient` da OpenZeppelin 5.7.0, compilados com Solidity 0.8.37 para Osaka. A release final da biblioteca está no canal `dev`, ainda distinto do `latest` auditado. A [revisão da toolchain](TOOLCHAIN.md) detalha compatibilidade, custo e testes de callbacks, rollback e composição na mesma transação. Os [diagramas](SECURITY_DIAGRAMS.md) foram derivados dos printers do Slither e revisados contra o código.

@@ -38,3 +38,7 @@ The profile excludes shared external share tokens, multi-asset denomination, sha
 Mandatory evidence commitments, interval-based principal payments, recoverability of historical rights after a lost key, and operator discovery are explicit discussion topics. Their absence from a universal solution is not concealed by reference-code coverage.
 
 Publication still requires a real public discussion and editorial numbering. Formal verification, independent audit and external implementer adoption have not occurred.
+
+## Toolchain update — 2026-10-03
+
+The reference now targets Osaka with Solidity 0.8.37 and OpenZeppelin 5.7.0. Vault/factory reentrancy guards use transient storage. See [TOOLCHAIN](TOOLCHAIN.md) for network compatibility, the final-release versus audited-channel distinction, storage/CREATE2 changes and expanded validation. The six-method SFC interface identifier is unchanged.

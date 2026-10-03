@@ -12,6 +12,7 @@ SFC distinguishes outstanding principal, funded amortization, gross yield, withh
 - [Submission source](ERCS/erc-draft_structured_fund_cashflows.md) — uses the upstream relative-link convention.
 - [Deep comparison with RWA standards and market implementations](docs/RWA_COMPARISON_PT.md).
 - [Review findings and design decisions](docs/REVIEW.md).
+- [Compiler, dependency and transient-guard review](docs/TOOLCHAIN.md).
 - [Validation evidence](docs/VALIDATION.md), [security model](docs/SECURITY.md), [architecture](docs/ARCHITECTURE.md) and [integration](docs/INTEGRATION.md).
 - [Publication and ERC submission guide](docs/SUBMISSION.md), [forum draft](docs/MAGICIANS_POST.md) and [editorial PR body](docs/ERC_PR_BODY.md).
 
@@ -32,6 +33,8 @@ This profile uses one asset denomination and a vault that is its own share token
 
 ## Reference implementation
 
+Both the vault and factory use OpenZeppelin `ReentrancyGuardTransient`; this artifact targets **Osaka**. OpenZeppelin **5.7.0** is the newest final release but is in its `dev` channel; the audited `latest` channel remains 5.6.1 as checked on 2026-10-03. See the [toolchain review](docs/TOOLCHAIN.md) for the exact compatibility and audit-status distinction.
+
 `StructuredFundVault` implements synchronous deposit/mint, asynchronous redemption, cancelation, exact asset transfers, scoped principal, funded cashflows and segregated reserves. `StructuredFundFactory` creates one instance per fund/series/class through its immutable `StructuredFundVaultDeployer`, keeping creation bytecode within deployment limits. `StructuredFundEligibility` supplies a minimal allowlist/freeze policy; it is not full ERC-3643 compliance.
 
 A bounded `recordCashflowBatch` books up to 64 records atomically. Allocation remains trusted: the batch is not proof of fairness, portfolio existence or a complete holder snapshot. The reference has no upgrade or legacy migration entry point.
@@ -42,13 +45,13 @@ After cloning this repository, initialize its pinned submodules:
 
 ```sh
 git submodule update --init --recursive
-forge --version                         # v1.7.1
-python3 -m pip install slither-analyzer==0.11.3
+forge --version                         # v1.8.4
+python3 -m pip install slither-analyzer==0.11.6
 cargo install eipw --version 0.11.0 --locked
 ./scripts/verify.sh
 ```
 
-Solidity 0.8.28, Cancun, optimizer 200 and via-IR are fixed in `foundry.toml`. Dependencies and tools are recorded in [dependencies.lock.json](dependencies.lock.json). Verification uses no RPC, account keys or deployment transaction. The editorial check fetches the pinned public ERC corpus on first use.
+Solidity 0.8.37, Osaka, optimizer 200 and via-IR are fixed in `foundry.toml`. Dependencies and tools are recorded in [dependencies.lock.json](dependencies.lock.json). Verification uses no RPC, account keys or deployment transaction. The editorial check fetches the pinned public ERC corpus on first use.
 
 For faster development, run `forge test`. For the full evidence, use `verify.sh`: CI-profile unit/security/fuzz/invariant tests, complete interface comparison, bytecode limits, Slither review gate, coverage thresholds, upstream editorial lint and repository checks. Reports are written to `coverage/`; the reviewed snapshot is in [reports/](reports/validation.json). Recreate it with `python3 scripts/save_reports.py` only after successful verification.
 

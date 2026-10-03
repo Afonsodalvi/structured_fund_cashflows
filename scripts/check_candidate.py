@@ -77,7 +77,7 @@ def artifacts() -> dict:
         artifact = json.loads((ROOT / f"out/{name}.sol/{name}.json").read_text())
         metadata = json.loads(artifact["rawMetadata"])
         settings = metadata["settings"]
-        require(metadata["compiler"]["version"].startswith("0.8.28+") and settings["evmVersion"] == "cancun"
+        require(metadata["compiler"]["version"].startswith("0.8.37+") and settings["evmVersion"] == "osaka"
                 and settings["optimizer"]["enabled"] and settings["optimizer"]["runs"] == 200
                 and settings["viaIR"], f"Unexpected compiler settings or instrumented artifact: {name}")
         code = artifact["deployedBytecode"]["object"].removeprefix("0x")
@@ -106,7 +106,7 @@ def manifest(compiled: dict) -> dict:
     root_hash = hashlib.sha256(json.dumps(hashes, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     return {"schema": 1, "candidate": "Structured Fund Cashflows", "source_tree_sha256": root_hash,
             "foundry": subprocess.check_output(["forge", "--version"], text=True).splitlines()[0],
-            "compiler": "0.8.28", "evm": "cancun", "optimizer_runs": 200, "via_ir": True,
+            "compiler": "0.8.37", "evm": "osaka", "optimizer_runs": 200, "via_ir": True,
             "files_sha256": hashes, **compiled}
 
 

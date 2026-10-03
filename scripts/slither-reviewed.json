@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "reviewed_on": "2026-10-02",
+  "reviewed_on": "2026-10-03",
   "reviewed": [
     {
       "check": "calls-loop",

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
+pragma solidity 0.8.37;
 import {StructuredFundBase} from "../Base.t.sol";
 import {StructuredFundFactory} from "../../src/StructuredFundFactory.sol";
 import {StructuredFundVault} from "../../src/StructuredFundVault.sol";

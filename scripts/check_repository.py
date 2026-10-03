@@ -6,7 +6,7 @@ from render_spec import render
 
 ROOT = Path(__file__).resolve().parents[1]
 own = [p for p in ROOT.rglob("*") if p.is_file() and not any(
-    part in {".git", "lib", "out", "cache", "coverage", ".cache", "reports", "__pycache__", "dist"}
+    part in {".git", ".tools", "coverage-attribution.json", "inheritance-graph.dot", "lib", "out", "cache", "out-security", "cache-security", "snapshots", "coverage", ".cache", "reports", "__pycache__", "dist"}
     for part in p.relative_to(ROOT).parts)]
 errors = []
 for path in own:

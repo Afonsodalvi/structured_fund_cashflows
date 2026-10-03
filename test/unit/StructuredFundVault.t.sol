@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
+pragma solidity 0.8.37;
 import {StructuredFundBase} from "../Base.t.sol";
 import {StructuredFundVault} from "../../src/StructuredFundVault.sol";
 import {IStructuredFundCashflows} from "../../src/interfaces/IStructuredFundCashflows.sol";
@@ -7,6 +7,30 @@ import {StructuredFundEligibility} from "../../src/StructuredFundEligibility.sol
 import {MockAsset} from "../mocks/MockAsset.sol";
 
 contract StructuredFundVaultTest is StructuredFundBase {
+    function test_WithdrawEntireClaimClearsAssetsAndShares() public {
+        uint256 shares = _deposit(alice, 10 * UNIT);
+        _request(alice, alice, shares);
+        vault.fulfillRedeem(alice);
+        uint256 assets = vault.maxWithdraw(alice);
+        vm.prank(alice);
+        assertEq(vault.withdraw(assets, alice, alice), shares);
+        assertEq(vault.maxWithdraw(alice), 0);
+        assertEq(vault.maxRedeem(alice), 0);
+        assertEq(vault.reservedRedemptions(), 0);
+        assertEq(vault.totalOutstandingPrincipal(), 0);
+    }
+
+    function test_NonzeroCancellationIdNeverExposesIdZeroRights() public {
+        uint256 shares = _deposit(alice, UNIT);
+        _request(alice, alice, shares);
+        vm.prank(alice);
+        vault.cancelRedeemRequest(0, alice);
+        assertFalse(vault.pendingCancelRedeemRequest(1, alice));
+        vault.fulfillCancel(alice);
+        assertEq(vault.claimableCancelRedeemRequest(0, alice), shares);
+        assertEq(vault.claimableCancelRedeemRequest(1, alice), 0);
+    }
+
     function test_EscrowAndZeroAddressCannotBeDepositReceivers() public view {
         assertEq(vault.maxDeposit(address(0)), 0);
         assertEq(vault.maxMint(address(0)), 0);

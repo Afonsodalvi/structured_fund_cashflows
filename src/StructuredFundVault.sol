@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
+pragma solidity 0.8.37;
 
 import {ERC20, IERC20, IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {ERC4626} from "@openzeppelin/contracts/token/ERC20/extensions/ERC4626.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import {Math} from "@openzeppelin/contracts/utils/math/Math.sol";
-import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import {ReentrancyGuardTransient} from "@openzeppelin/contracts/utils/ReentrancyGuardTransient.sol";
 import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
 import {
     AccessControlDefaultAdminRules
@@ -18,7 +18,7 @@ import {IStructuredFundCashflows} from "./interfaces/IStructuredFundCashflows.so
 contract StructuredFundVault is
     ERC4626,
     AccessControlDefaultAdminRules,
-    ReentrancyGuard,
+    ReentrancyGuardTransient,
     Pausable,
     IStructuredFundCashflows
 {

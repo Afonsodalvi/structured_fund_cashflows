@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
+pragma solidity 0.8.37;
 
 import {
     AccessControlDefaultAdminRules
@@ -7,10 +7,10 @@ import {
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {IStructuredFundEligibility} from "./interfaces/IStructuredFundEligibility.sol";
 import {StructuredFundVaultDeployer} from "./StructuredFundVaultDeployer.sol";
-import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import {ReentrancyGuardTransient} from "@openzeppelin/contracts/utils/ReentrancyGuardTransient.sol";
 
 /// @notice Deterministic scope registry; no shared quota inventory or cross-class NAV.
-contract StructuredFundFactory is AccessControlDefaultAdminRules, ReentrancyGuard {
+contract StructuredFundFactory is AccessControlDefaultAdminRules, ReentrancyGuardTransient {
     bytes32 public constant CREATOR_ROLE = keccak256("CREATOR_ROLE");
     mapping(bytes32 => address) public vaultForScope;
     StructuredFundVaultDeployer public immutable deployer;
